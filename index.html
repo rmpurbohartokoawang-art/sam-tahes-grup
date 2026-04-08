@@ -795,7 +795,7 @@ box-shadow: none;
 
 <div id="login-overlay" style="position:fixed;inset:0;z-index:2000;background:#0a0a0f;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;">
   <div style="width:320px;text-align:center">
-    <div style="font-size:40px;margin-bottom:8px">ðŸ </div>
+    <div style="font-size:40px;margin-bottom:8px">&#x1F360;</div>
     <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#ff9500,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px">SAM TAHES GRUP</div>
     <div style="font-size:12px;color:#7a7a9a;margin-bottom:28px">Sistem Kasir & Keuangan</div>
     <div id="pin-display" style="display:flex;justify-content:center;gap:12px;margin-bottom:8px">
@@ -815,7 +815,7 @@ box-shadow: none;
       <button class="pin-key" onclick="pinPress('7')">7</button>
       <button class="pin-key" onclick="pinPress('8')">8</button>
       <button class="pin-key" onclick="pinPress('9')">9</button>
-      <button class="pin-key" onclick="pinPress('clear')" style="color:#ff4757;font-size:20px">âŒ«</button>
+      <button class="pin-key" onclick="pinPress('clear')" style="color:#ff4757;font-size:20px">&#x232B;</button>
       <button class="pin-key" onclick="pinPress('0')">0</button>
       <button class="pin-key" onclick="pinPress('ok')" style="background:#ff9500;color:#000;font-weight:800">OK</button>
     </div>
@@ -842,26 +842,26 @@ box-shadow: none;
 
   <div class="nav-group-label">Brand di bawah Grup</div>
   <div class="nav-item active" style="--accent-color:var(--st)" onclick="showPage('pos-st',this)">
-    <span class="ni">ðŸ </span> Sam Tahes <span style="margin-left:auto;font-size:10px;color:var(--dim)">4 outlet</span>
+    <span class="ni">&#x1F360;</span> Sam Tahes <span style="margin-left:auto;font-size:10px;color:var(--dim)">4 outlet</span>
   </div>
   <div class="nav-item" style="--accent-color:var(--sc)" onclick="showPage('pos-sc',this)">
-    <span class="ni">ðŸ¥Ÿ</span> Siomay Cihampelas <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+    <span class="ni">&#x1F95F;</span> Siomay Cihampelas <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
   </div>
   <div class="nav-item" style="--accent-color:var(--mk)" onclick="showPage('pos-mk',this)">
-    <span class="ni">ðŸ”</span> Meg's Kitchen <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+    <span class="ni">&#x1F354;</span> Meg's Kitchen <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
   </div>
 
   <div class="nav-group-label">Laporan</div>
   <div class="nav-item" style="--accent-color:var(--yellow)" onclick="showPage('report-today',this)">
-    <span class="ni">ðŸ“‹</span> Laporan Hari Ini
+    <span class="ni">&#x1F4CB;</span> Laporan Hari Ini
   </div>
   <div class="nav-item" style="--accent-color:var(--blue)" onclick="showPage('report-all',this)">
-    <span class="ni">ðŸ“Š</span> Rekap Keuangan
+    <span class="ni">&#x1F4CA;</span> Rekap Keuangan
   </div>
 
   <div class="nav-group-label">Pengeluaran</div>
   <div class="nav-item" style="--accent-color:var(--red)" onclick="showPage('pengeluaran',this)">
-    <span class="ni">ðŸ’¸</span> Catat Pengeluaran
+    <span class="ni">&#x1F4B8;</span> Catat Pengeluaran
   </div>
 
   <div class="sidebar-footer" id="sb-clock" style="cursor:pointer" onclick="logout()" title="Klik untuk logout">â€”</div>
@@ -876,7 +876,7 @@ box-shadow: none;
       <span class="today-badge" id="topbar-day">â€”</span>
     </div>
     <div style="display:flex;gap:8px">
-      <button class="btn btn-ghost btn-sm" onclick="showPage('report-today', document.querySelector('.nav-item:nth-child(6)'))">ðŸ“‹ Lihat Laporan Hari Ini</button>
+      <button class="btn btn-ghost btn-sm" onclick="showPage('report-today', document.querySelector('.nav-item:nth-child(6)'))">&#x1F4CB; Lihat Laporan Hari Ini</button>
     </div>
   </div>
 
@@ -887,7 +887,7 @@ box-shadow: none;
 <div class="page active" id="page-pos-st">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--st)">ðŸ  Sam Tahes</div>
+      <div class="pg-title" style="color:var(--st)">&#x1F360; Sam Tahes</div>
       <div class="pg-sub">Kukusan & rebusan Â· 4 Outlet Â· Buka 06.00â€“09.00</div>
     </div>
   </div>
@@ -901,7 +901,7 @@ box-shadow: none;
         <div class="outlet-btn" onclick="setOutlet('st',3,this)">Outlet 4 Â· Jl. Veteran</div>
       </div>
       <div class="barcode-input-wrap">
-        <span class="barcode-icon">ðŸ“·</span>
+        <span class="barcode-icon">&#x1F4F7;</span>
         <input class="barcode-field" id="st-barcode" placeholder="Scan barcode atau ketik kode... (ST-PK / ST-PB)" autocomplete="off" onkeydown="handleBarcode(event,'st')">
       </div>
       <div class="product-section-title">ðŸ“¦ Paket (Barcode)</div>
@@ -909,12 +909,12 @@ box-shadow: none;
         <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PK',name:'Paket Kecil',sub:'Thinwall 1000ml',price:12000,barcode:'ST-PK'})">
           <div class="pb-name">Paket Kecil</div>
           <div class="pb-price">Rp 12.000</div>
-          <div class="pb-barcode">ðŸ“· ST-PK Â· 1000ml</div>
+          <div class="pb-barcode">&#x1F4F7; ST-PK Â· 1000ml</div>
         </div>
         <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PB',name:'Paket Besar',sub:'Thinwall 2000ml',price:24000,barcode:'ST-PB'})">
           <div class="pb-name">Paket Besar</div>
           <div class="pb-price">Rp 24.000</div>
-          <div class="pb-barcode">ðŸ“· ST-PB Â· 2000ml</div>
+          <div class="pb-barcode">&#x1F4F7; ST-PB Â· 2000ml</div>
         </div>
       </div>
       <div class="product-section-title">ðŸ·ï¸ Satuan</div>
@@ -939,7 +939,7 @@ box-shadow: none;
     <!-- CART -->
     <div class="pos-cart">
       <div class="cart-header">
-        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-title">&#x1F6D2; Keranjang</div>
         <div class="cart-brand"><span class="badge badge-st">SAM TAHES</span> Â· <span id="st-outlet-label">Outlet 1</span></div>
       </div>
       <div class="cart-items" id="st-cart-items">
@@ -954,12 +954,12 @@ box-shadow: none;
         <div class="payment-method-wrap" id="st-pay-wrap">
           <div class="pay-label">Metode Bayar</div>
           <div class="pay-btns">
-            <div class="pay-btn active" id="st-pay-tunai" onclick="setPayMethod('st','tunai')">ðŸ’µ Tunai</div>
-            <div class="pay-btn" id="st-pay-qris" onclick="setPayMethod('st','qris')">ðŸ“± QRIS BCA</div>
+            <div class="pay-btn active" id="st-pay-tunai" onclick="setPayMethod('st','tunai')">&#x1F4B5; Tunai</div>
+            <div class="pay-btn" id="st-pay-qris" onclick="setPayMethod('st','qris')">&#x1F4F1; QRIS BCA</div>
           </div>
         </div>
-        <button class="btn-bayar" onclick="bayar('st')">âœ“ BAYAR &amp; SIMPAN</button>
-        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('st')">ðŸ—‘ Kosongkan</button>
+        <button class="btn-bayar" onclick="bayar('st')">&#x2713; BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('st')">&#x1F5D1; Kosongkan</button>
       </div>
     </div>
   </div>
@@ -969,14 +969,14 @@ box-shadow: none;
 <div class="page" id="page-pos-sc">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--sc)">ðŸ¥Ÿ Siomay Cihampelas</div>
+      <div class="pg-title" style="color:var(--sc)">&#x1F95F; Siomay Cihampelas</div>
       <div class="pg-sub">Siomay Â· Paket & eceran Â· 1 Outlet</div>
     </div>
   </div>
   <div class="pos-grid">
     <div class="pos-products">
       <div class="barcode-input-wrap">
-        <span class="barcode-icon">ðŸ“·</span>
+        <span class="barcode-icon">&#x1F4F7;</span>
         <input class="barcode-field" id="sc-barcode" placeholder="Scan barcode paket... (SC-PAK)" autocomplete="off" onkeydown="handleBarcode(event,'sc')">
       </div>
       <div class="product-section-title">ðŸ“¦ Paket (Barcode)</div>
@@ -984,7 +984,7 @@ box-shadow: none;
         <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-PAK',name:'Paket Siomay',sub:'Siomay+Tahu+Kentang+Pare+Kobis+TelurÂ½',price:15000,barcode:'SC-PAK'})">
           <div class="pb-name">Paket Komplit</div>
           <div class="pb-price">Rp 15.000</div>
-          <div class="pb-barcode">ðŸ“· SC-PAK</div>
+          <div class="pb-barcode">&#x1F4F7; SC-PAK</div>
         </div>
       </div>
       <div class="product-section-title">ðŸ·ï¸ Eceran</div>
@@ -1017,7 +1017,7 @@ box-shadow: none;
     </div>
     <div class="pos-cart">
       <div class="cart-header">
-        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-title">&#x1F6D2; Keranjang</div>
         <div class="cart-brand"><span class="badge badge-sc">SIOMAY CIHAMPELAS</span> Â· <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
       </div>
       <div class="cart-items" id="sc-cart-items">
@@ -1032,12 +1032,12 @@ box-shadow: none;
         <div class="payment-method-wrap">
           <div class="pay-label">Metode Bayar</div>
           <div class="pay-btns">
-            <div class="pay-btn active" id="sc-pay-tunai" onclick="setPayMethod('sc','tunai')">ðŸ’µ Tunai</div>
-            <div class="pay-btn" id="sc-pay-qris" onclick="setPayMethod('sc','qris')">ðŸ“± QRIS BCA</div>
+            <div class="pay-btn active" id="sc-pay-tunai" onclick="setPayMethod('sc','tunai')">&#x1F4B5; Tunai</div>
+            <div class="pay-btn" id="sc-pay-qris" onclick="setPayMethod('sc','qris')">&#x1F4F1; QRIS BCA</div>
           </div>
         </div>
-        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--sc),#00e5c4)" onclick="bayar('sc')">âœ“ BAYAR &amp; SIMPAN</button>
-        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('sc')">ðŸ—‘ Kosongkan</button>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--sc),#00e5c4)" onclick="bayar('sc')">&#x2713; BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('sc')">&#x1F5D1; Kosongkan</button>
       </div>
     </div>
   </div>
@@ -1047,13 +1047,13 @@ box-shadow: none;
 <div class="page" id="page-pos-mk">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--mk)">ðŸ” Meg's Kitchen</div>
+      <div class="pg-title" style="color:var(--mk)">&#x1F354; Meg's Kitchen</div>
       <div class="pg-sub">Street food Â· Penjualan satuan Â· 1 Outlet</div>
     </div>
   </div>
   <div class="pos-grid">
     <div class="pos-products">
-      <div class="product-section-title">ðŸ” Menu</div>
+      <div class="product-section-title">&#x1F354; Menu</div>
       <div class="product-grid">
         <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-BG',name:'Burger',price:15000})">
           <div class="pb-name">Burger</div>
@@ -1083,7 +1083,7 @@ box-shadow: none;
     </div>
     <div class="pos-cart">
       <div class="cart-header">
-        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-title">&#x1F6D2; Keranjang</div>
         <div class="cart-brand"><span class="badge badge-mk">MEG'S KITCHEN</span> Â· <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
       </div>
       <div class="cart-items" id="mk-cart-items">
@@ -1098,12 +1098,12 @@ box-shadow: none;
         <div class="payment-method-wrap">
           <div class="pay-label">Metode Bayar</div>
           <div class="pay-btns">
-            <div class="pay-btn active" id="mk-pay-tunai" onclick="setPayMethod('mk','tunai')">ðŸ’µ Tunai</div>
-            <div class="pay-btn" id="mk-pay-qris" onclick="setPayMethod('mk','qris')">ðŸ“± QRIS BCA</div>
+            <div class="pay-btn active" id="mk-pay-tunai" onclick="setPayMethod('mk','tunai')">&#x1F4B5; Tunai</div>
+            <div class="pay-btn" id="mk-pay-qris" onclick="setPayMethod('mk','qris')">&#x1F4F1; QRIS BCA</div>
           </div>
         </div>
-        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--mk),#ff6eb4)" onclick="bayar('mk')">âœ“ BAYAR &amp; SIMPAN</button>
-        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('mk')">ðŸ—‘ Kosongkan</button>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--mk),#ff6eb4)" onclick="bayar('mk')">&#x2713; BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('mk')">&#x1F5D1; Kosongkan</button>
       </div>
     </div>
   </div>
@@ -1113,11 +1113,11 @@ box-shadow: none;
 <div class="page" id="page-report-today">
   <div class="pg-header">
     <div>
-      <div class="pg-title">ðŸ“‹ Laporan Hari Ini</div>
+      <div class="pg-title">&#x1F4CB; Laporan Hari Ini</div>
       <div class="pg-sub" id="report-today-sub">â€”</div>
     </div>
     <div class="pg-actions">
-      <button class="btn btn-ghost" onclick="renderTodayReport()">ðŸ”„ Refresh</button>
+      <button class="btn btn-ghost" onclick="renderTodayReport()">&#x1F504; Refresh</button>
     </div>
   </div>
 
@@ -1132,13 +1132,13 @@ box-shadow: none;
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
     <div class="kpi-card" style="--kc:var(--green)">
       <div class="kpi-accent"></div>
-      <div class="kpi-label">ðŸ’µ Dana Tunai Hari Ini</div>
+      <div class="kpi-label">&#x1F4B5; Dana Tunai Hari Ini</div>
       <div class="kpi-val" id="today-tunai">Rp 0</div>
       <div class="kpi-note" id="today-tunai-n">0 transaksi</div>
     </div>
     <div class="kpi-card" style="--kc:var(--blue)">
       <div class="kpi-accent"></div>
-      <div class="kpi-label">ðŸ“± Dana QRIS BCA Hari Ini</div>
+      <div class="kpi-label">&#x1F4F1; Dana QRIS BCA Hari Ini</div>
       <div class="kpi-val" id="today-qris">Rp 0</div>
       <div class="kpi-note" id="today-qris-n" style="color:var(--blue)">0 transaksi Â· cek mutasi BCA</div>
     </div>
@@ -1149,7 +1149,7 @@ box-shadow: none;
 
   <!-- Outlet breakdown Sam Tahes -->
   <div class="card" id="today-outlet-card" style="margin-bottom:16px">
-    <div class="card-head"><span class="card-title">ðŸ  Sam Tahes â€” Breakdown per Outlet</span></div>
+    <div class="card-head"><span class="card-title">&#x1F360; Sam Tahes â€” Breakdown per Outlet</span></div>
     <div class="card-body" id="today-outlet-body"></div>
   </div>
 
@@ -1170,10 +1170,10 @@ box-shadow: none;
 <div class="page" id="page-report-all">
   <div class="pg-header">
     <div>
-      <div class="pg-title">ðŸ“Š Rekap Keuangan</div>
+      <div class="pg-title">&#x1F4CA; Rekap Keuangan</div>
       <div class="pg-sub">Semua penjualan & pengeluaran</div>
     </div>
-    <button class="btn btn-ghost" onclick="renderAllReport()">ðŸ”„ Refresh</button>
+    <button class="btn btn-ghost" onclick="renderAllReport()">&#x1F504; Refresh</button>
   </div>
 
   <div class="kpi-grid">
@@ -1183,8 +1183,8 @@ box-shadow: none;
     <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">Total Transaksi</div><div class="kpi-val" id="all-txcount">0</div><div class="kpi-note">semua waktu</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
-    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">ðŸ’µ Total Dana Tunai</div><div class="kpi-val" id="all-tunai">Rp 0</div><div class="kpi-note" id="all-tunai-n">0 transaksi</div></div>
-    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">ðŸ“± Total Dana QRIS BCA</div><div class="kpi-val" id="all-qris">Rp 0</div><div class="kpi-note" id="all-qris-n" style="color:var(--blue)">0 transaksi Â· crosscheck mutasi BCA</div></div>
+    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4B5; Total Dana Tunai</div><div class="kpi-val" id="all-tunai">Rp 0</div><div class="kpi-note" id="all-tunai-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4F1; Total Dana QRIS BCA</div><div class="kpi-val" id="all-qris">Rp 0</div><div class="kpi-note" id="all-qris-n" style="color:var(--blue)">0 transaksi Â· crosscheck mutasi BCA</div></div>
   </div>
 
   <!-- Laba Rugi per brand -->
@@ -1219,7 +1219,7 @@ box-shadow: none;
 <div class="page" id="page-pengeluaran">
   <div class="pg-header">
     <div>
-      <div class="pg-title">ðŸ’¸ Catat Pengeluaran</div>
+      <div class="pg-title">&#x1F4B8; Catat Pengeluaran</div>
       <div class="pg-sub">Bahan baku, operasional, dll</div>
     </div>
   </div>
@@ -1264,7 +1264,7 @@ box-shadow: none;
           <label class="form-label">Keterangan</label>
           <input class="form-control" id="pgl-ket" placeholder="Contoh: Beli ubi jalar 5kg, beli gas elpiji...">
         </div>
-        <button class="btn btn-primary" style="width:100%" onclick="simpanPengeluaran()">ðŸ’¾ Simpan Pengeluaran</button>
+        <button class="btn btn-primary" style="width:100%" onclick="simpanPengeluaran()">&#x1F4BE; Simpan Pengeluaran</button>
       </div>
     </div>
     <div class="card">
@@ -1285,16 +1285,16 @@ box-shadow: none;
 
 <div class="success-overlay" id="success-overlay">
   <div class="success-box">
-    <div class="success-icon" id="success-icon">âœ…</div>
+    <div class="success-icon" id="success-icon">&#x2705;</div>
     <div class="success-title" id="success-title">TERBAYAR!</div>
     <div class="success-amount" id="success-amount">Rp 0</div>
     <div class="success-sub" id="success-sub">â€”</div>
     <div id="success-qris-note" style="display:none;margin-bottom:14px;padding:10px 14px;background:rgba(61,156,255,0.1);border:1px solid rgba(61,156,255,0.25);border-radius:8px;font-size:12px;color:#3d9cff;line-height:1.6">
-      ðŸ“± <b>Pembayaran QRIS</b><br>Pastikan notif masuk di app BCA sebelum menutup struk.
+      &#x1F4F1; <b>Pembayaran QRIS</b><br>Pastikan notif masuk di app BCA sebelum menutup struk.
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
       <button class="btn btn-ghost" style="width:100%" onclick="closeSuccess()">Tutup</button>
-      <button class="btn" style="width:100%;background:#f8f8f8;color:#111;font-weight:700" onclick="printNota()">ðŸ–¨ï¸ Print Nota</button>
+      <button class="btn" style="width:100%;background:#f8f8f8;color:#111;font-weight:700" onclick="printNota()">&#x1F5A8; Print Nota</button>
     </div>
   </div>
 </div>
@@ -1308,8 +1308,8 @@ box-shadow: none;
         <!-- diisi oleh JS -->
       </div>
       <div class="nota-print-actions" style="padding:12px 16px;border-top:1px solid #eee;display:flex;gap:8px">
-        <button class="btn btn-ghost" style="flex:1;color:#333;border-color:#ddd" onclick="closeNota()">âœ• Tutup</button>
-        <button class="btn btn-primary" style="flex:1" onclick="window.print()">ðŸ–¨ï¸ Print Nota</button>
+        <button class="btn btn-ghost" style="flex:1;color:#333;border-color:#ddd" onclick="closeNota()">&#x2715; Tutup</button>
+        <button class="btn btn-primary" style="flex:1" onclick="window.print()">&#x1F5A8; Print Nota</button>
       </div>
     </div>
   </div>
@@ -1517,7 +1517,7 @@ async function initApp() {
   updateClock();
 
   // Update label user di sidebar
-  document.querySelector('.sidebar-footer').textContent = 'ðŸ‘¤ ' + currentUser.label;
+  document.querySelector('.sidebar-footer').textContent = '&#x1F464; ' + currentUser.label;
 }
 
 function hideCashierNav() {
@@ -1704,7 +1704,7 @@ async function bayar(brand) {
   setPayMethod(brand, 'tunai');
   // success overlay
   const isQris = method === 'qris';
-  document.getElementById('success-icon').textContent = isQris ? 'ðŸ“±' : 'âœ…';
+  document.getElementById('success-icon').textContent = isQris ? '&#x1F4F1;' : '&#x2705;';
   document.getElementById('success-title').textContent = isQris ? 'QRIS DITERIMA!' : 'TERBAYAR!';
   document.getElementById('success-title').style.color = isQris ? 'var(--blue)' : 'var(--green)';
   document.getElementById('success-amount').textContent = rp(total);
@@ -1752,7 +1752,7 @@ function printNota() {
 
   const notaHTML = `
     <div class="nota-header">
-      <div style="font-size:22px;margin-bottom:4px">${t.brand==='st'?'ðŸ ':t.brand==='sc'?'ðŸ¥Ÿ':'ðŸ”'}</div>
+      <div style="font-size:22px;margin-bottom:4px">${t.brand==='st'?'&#x1F360;':t.brand==='sc'?'&#x1F95F;':'&#x1F354;'}</div>
       <div class="nota-brand">${BRAND_NAMES[t.brand]}</div>
       <div class="nota-tagline">${BRAND_TAGLINE[t.brand]}</div>
       <div class="nota-tagline" style="margin-top:2px">SAM TAHES GRUP</div>
@@ -1774,12 +1774,12 @@ function printNota() {
       <span class="nota-total-val">${rpNota(t.total)}</span>
     </div>
     <div class="nota-method ${isQris?'qris':'tunai'}">
-      ${isQris ? 'ðŸ“± QRIS BCA' : 'ðŸ’µ TUNAI'}
+      ${isQris ? '&#x1F4F1; QRIS BCA' : '&#x1F4B5; TUNAI'}
     </div>
     <hr class="nota-divider">
     <div class="nota-footer">
       Terima kasih sudah membeli!<br>
-      Semoga sehat & berkah ðŸ™<br>
+      Semoga sehat & berkah &#x1F64F;<br>
       <span style="font-size:9px;color:#bbb">â€” Sam Tahes Grup â€”</span>
     </div>`;
 
@@ -1814,7 +1814,7 @@ async function simpanPengeluaran() {
   document.getElementById('pgl-ket').value = '';
   document.getElementById('pgl-jml').value = '';
   renderPengeluaran();
-  alert('Pengeluaran tersimpan âœ…');
+  alert('Pengeluaran tersimpan &#x2705;');
 }
 
 function renderPengeluaran() {
@@ -1923,8 +1923,8 @@ function renderTodayReport() {
     const itemStr = t.items.map(i=>`${i.qty}Ã— ${i.name}`).join(', ');
     const isQris = t.payMethod==='qris';
     const methodBadge = isQris
-      ? `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">ðŸ“± QRIS</span>`
-      : `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">ðŸ’µ TUNAI</span>`;
+      ? `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">&#x1F4F1; QRIS</span>`
+      : `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">&#x1F4B5; TUNAI</span>`;
     return `<tr>
       <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${new Date(t.time).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}</td>
       <td><span class="badge ${colorClass}">${BRAND_NAMES[t.brand]}</span></td>
@@ -2004,8 +2004,8 @@ function renderAllReport() {
     const isQris = t.payMethod==='qris';
     const methodBadge = t._type==='penjualan'
       ? (isQris
-          ? `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">ðŸ“± QRIS</span>`
-          : `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">ðŸ’µ TUNAI</span>`)
+          ? `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">&#x1F4F1; QRIS</span>`
+          : `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">&#x1F4B5; TUNAI</span>`)
       : `<span style="font-size:10px;color:var(--dim)">â€”</span>`;
     return `<tr>
       <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${fmtTime(t.time)}</td>
