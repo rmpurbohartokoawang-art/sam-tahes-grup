@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Tahes Grup â€” Sistem Kasir & Keuangan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface2: #1a1a24;
+  --surface3: #22222e;
+  --border: #2a2a3a;
+  --border2: #33334a;
+  --text: #eeeaf8;
+  --muted: #7a7a9a;
+  --dim: #44445a;
+
+â€“st: #ff9500;        /* Sam Tahes - amber */
+â€“sc: #00c9a7;        /* Siomay Cihampelas - teal */
+â€“mk: #ff4081;        /* Megâ€™s Kitchen - pink */
+
+â€“green: #2ecc71;
+â€“red: #ff4757;
+â€“blue: #3d9cff;
+â€“yellow: #ffd32a;
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+  background: var(â€“bg);
+  color: var(â€“text);
+  font-family: â€˜Plus Jakarta Sansâ€™, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  }
+
+/* â”€â”€ SIDEBAR â”€â”€ */
+.sidebar {
+width: 240px;
+flex-shrink: 0;
+background: var(â€“surface);
+border-right: 1px solid var(â€“border);
+display: flex;
+flex-direction: column;
+height: 100vh;
+overflow-y: auto;
+position: sticky;
+top: 0;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(â€“border2); }
+
+.brand-logo {
+padding: 20px 18px 16px;
+border-bottom: 1px solid var(â€“border);
+}
+.brand-logo .eyebrow {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 9px;
+letter-spacing: 0.22em;
+color: var(â€“muted);
+text-transform: uppercase;
+margin-bottom: 4px;
+}
+.brand-logo h1 {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 18px;
+font-weight: 900;
+line-height: 1.1;
+background: linear-gradient(135deg, var(â€“st) 0%, #ffcc00 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.brand-logo .sub {
+font-size: 11px;
+color: var(â€“muted);
+margin-top: 2px;
+}
+
+.nav-group-label {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 9px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(â€“dim);
+padding: 14px 18px 5px;
+}
+.nav-item {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 9px 18px;
+cursor: pointer;
+font-size: 13px;
+font-weight: 500;
+color: var(â€“muted);
+border-left: 3px solid transparent;
+transition: all 0.14s;
+user-select: none;
+}
+.nav-item:hover { background: var(â€“surface2); color: var(â€“text); }
+.nav-item.active { background: var(â€“surface2); color: var(â€“text); border-left-color: var(â€“accent-color, var(â€“st)); }
+.nav-item .ni { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.sidebar-footer {
+margin-top: auto;
+padding: 14px 18px;
+border-top: 1px solid var(â€“border);
+font-size: 11px;
+color: var(â€“dim);
+font-family: â€˜DM Monoâ€™, monospace;
+}
+
+/* â”€â”€ MAIN â”€â”€ */
+.main-wrap {
+flex: 1;
+height: 100vh;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+}
+.main-wrap::-webkit-scrollbar { width: 4px; }
+.main-wrap::-webkit-scrollbar-thumb { background: var(â€“border2); border-radius: 2px; }
+
+.main-content {
+padding: 28px 28px 60px;
+flex: 1;
+}
+
+/* â”€â”€ PAGE HEADER â”€â”€ */
+.pg-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+margin-bottom: 24px;
+gap: 16px;
+}
+.pg-title {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 24px;
+font-weight: 800;
+letter-spacing: -0.02em;
+line-height: 1.1;
+}
+.pg-sub {
+font-size: 12.5px;
+color: var(â€“muted);
+margin-top: 3px;
+}
+.pg-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* â”€â”€ TOP BAR â”€â”€ */
+.topbar {
+background: var(â€“surface);
+border-bottom: 1px solid var(â€“border);
+padding: 10px 28px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+position: sticky;
+top: 0;
+z-index: 50;
+}
+.topbar-left { display: flex; align-items: center; gap: 10px; }
+.topbar-date {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 11px;
+color: var(â€“muted);
+}
+.today-badge {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 10px;
+background: var(â€“surface2);
+border: 1px solid var(â€“border2);
+padding: 3px 10px;
+border-radius: 20px;
+color: var(â€“text);
+}
+
+/* â”€â”€ KPI â”€â”€ */
+.kpi-grid {
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 12px;
+margin-bottom: 20px;
+}
+.kpi-card {
+background: var(â€“surface);
+border: 1px solid var(â€“border);
+border-radius: 12px;
+padding: 16px 18px;
+position: relative;
+overflow: hidden;
+}
+.kpi-card::after {
+content: â€˜â€™;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse at top left, var(â€“kc) 0%, transparent 65%);
+opacity: 0.07;
+pointer-events: none;
+}
+.kpi-accent {
+height: 2px;
+border-radius: 1px;
+margin-bottom: 12px;
+background: var(â€“kc);
+}
+.kpi-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(â€“muted); margin-bottom: 6px; }
+.kpi-val {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 20px;
+font-weight: 800;
+letter-spacing: -0.02em;
+}
+.kpi-note { font-size: 11px; color: var(â€“muted); margin-top: 4px; }
+.kpi-note.pos { color: var(â€“green); }
+.kpi-note.neg { color: var(â€“red); }
+
+/* â”€â”€ GRID â”€â”€ */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.g3 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 16px; }
+.g31 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+
+/* â”€â”€ CARD â”€â”€ */
+.card {
+background: var(â€“surface);
+border: 1px solid var(â€“border);
+border-radius: 12px;
+overflow: hidden;
+}
+.card-head {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 14px 18px 12px;
+border-bottom: 1px solid var(â€“border);
+}
+.card-title {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 13.5px;
+font-weight: 700;
+}
+.card-body { padding: 14px 18px; }
+.card-chip {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 9.5px;
+padding: 3px 8px;
+border-radius: 4px;
+background: var(â€“surface2);
+border: 1px solid var(â€“border2);
+color: var(â€“muted);
+}
+
+/* â”€â”€ TABLE â”€â”€ */
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl thead th {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 9.5px;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(â€“muted);
+padding: 0 14px 8px;
+border-bottom: 1px solid var(â€“border);
+text-align: left;
+font-weight: 400;
+}
+.tbl tbody td {
+font-size: 12.5px;
+padding: 9px 14px;
+border-bottom: 1px solid rgba(255,255,255,0.03);
+vertical-align: middle;
+}
+.tbl tbody tr:last-child td { border-bottom: none; }
+.tbl tbody tr:hover td { background: rgba(255,255,255,0.018); }
+
+/* â”€â”€ BUTTONS â”€â”€ */
+.btn {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 8px 16px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+font-family: â€˜Plus Jakarta Sansâ€™, sans-serif;
+font-size: 12.5px;
+font-weight: 600;
+transition: all 0.13s;
+white-space: nowrap;
+}
+.btn-primary { background: var(â€“st); color: #000; }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-teal { background: var(â€“sc); color: #000; }
+.btn-teal:hover { filter: brightness(1.1); }
+.btn-pink { background: var(â€“mk); color: #fff; }
+.btn-pink:hover { filter: brightness(1.1); }
+.btn-ghost { background: var(â€“surface2); color: var(â€“text); border: 1px solid var(â€“border2); }
+.btn-ghost:hover { background: var(â€“surface3); }
+.btn-danger { background: rgba(255,71,87,0.12); color: var(â€“red); border: 1px solid rgba(255,71,87,0.2); }
+.btn-sm { padding: 5px 10px; font-size: 11px; border-radius: 6px; }
+.btn-green { background: rgba(46,204,113,0.12); color: var(â€“green); border: 1px solid rgba(46,204,113,0.2); }
+
+/* â”€â”€ FORMS â”€â”€ */
+.form-label {
+display: block;
+font-size: 10.5px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(â€“muted);
+margin-bottom: 5px;
+}
+.form-control {
+width: 100%;
+background: var(â€“surface2);
+border: 1.5px solid var(â€“border);
+border-radius: 8px;
+padding: 8px 12px;
+color: var(â€“text);
+font-family: â€˜Plus Jakarta Sansâ€™, sans-serif;
+font-size: 13px;
+outline: none;
+transition: border 0.14s;
+}
+.form-control:focus { border-color: var(â€“st); }
+.form-group { margin-bottom: 12px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+select.form-control { appearance: none; cursor: pointer; }
+
+/* â”€â”€ MODAL â”€â”€ */
+.modal-overlay {
+display: none;
+position: fixed; inset: 0;
+background: rgba(0,0,0,0.8);
+z-index: 900;
+align-items: center;
+justify-content: center;
+padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+background: var(â€“surface);
+border: 1px solid var(â€“border2);
+border-radius: 16px;
+padding: 24px;
+width: 520px;
+max-width: 100%;
+max-height: 90vh;
+overflow-y: auto;
+}
+.modal::-webkit-scrollbar { width: 4px; }
+.modal-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 18px;
+}
+.modal-title {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 17px;
+font-weight: 800;
+}
+.modal-close {
+width: 28px; height: 28px;
+border-radius: 6px;
+background: var(â€“surface2);
+border: none; cursor: pointer;
+color: var(â€“muted);
+font-size: 16px;
+display: flex; align-items: center; justify-content: center;
+transition: color 0.12s;
+}
+.modal-close:hover { color: var(â€“text); }
+
+/* â”€â”€ PAGES â”€â”€ */
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* â”€â”€ POS KASIR â”€â”€ */
+.pos-grid {
+display: grid;
+grid-template-columns: 1fr 340px;
+gap: 14px;
+height: calc(100vh - 130px);
+}
+.pos-products {
+background: var(â€“surface);
+border: 1px solid var(â€“border);
+border-radius: 12px;
+overflow-y: auto;
+padding: 16px;
+}
+.pos-products::-webkit-scrollbar { width: 3px; }
+.pos-products::-webkit-scrollbar-thumb { background: var(â€“border2); }
+.pos-cart {
+background: var(â€“surface);
+border: 1px solid var(â€“border);
+border-radius: 12px;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+}
+
+.product-section-title {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 10px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(â€“muted);
+margin: 10px 0 8px;
+}
+.product-section-title:first-child { margin-top: 0; }
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+gap: 8px;
+margin-bottom: 12px;
+}
+.product-btn {
+background: var(â€“surface2);
+border: 1.5px solid var(â€“border);
+border-radius: 10px;
+padding: 12px 10px;
+cursor: pointer;
+transition: all 0.13s;
+text-align: left;
+position: relative;
+overflow: hidden;
+}
+.product-btn:hover { border-color: var(â€“pb-color, var(â€“st)); background: var(â€“surface3); }
+.product-btn::before {
+content: â€˜â€™;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+background: var(â€“pb-color, var(â€“st));
+opacity: 0.6;
+}
+.pb-name {
+font-size: 12px;
+font-weight: 600;
+color: var(â€“text);
+margin-bottom: 4px;
+line-height: 1.3;
+}
+.pb-price {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 12px;
+color: var(â€“pb-color, var(â€“st));
+font-weight: 500;
+}
+.pb-barcode {
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 9px;
+color: var(â€“dim);
+margin-top: 3px;
+}
+
+/* BARCODE INDICATOR */
+.barcode-input-wrap {
+position: relative;
+margin-bottom: 12px;
+}
+.barcode-field {
+width: 100%;
+background: var(â€“surface2);
+border: 2px solid var(â€“border2);
+border-radius: 8px;
+padding: 10px 14px 10px 38px;
+color: var(â€“text);
+font-family: â€˜DM Monoâ€™, monospace;
+font-size: 13px;
+outline: none;
+transition: border 0.14s;
+}
+.barcode-field:focus { border-color: var(â€“st); }
+.barcode-icon {
+position: absolute;
+left: 12px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 16px;
+pointer-events: none;
+}
+.outlet-selector {
+display: flex;
+gap: 6px;
+margin-bottom: 12px;
+flex-wrap: wrap;
+}
+.outlet-btn {
+padding: 5px 12px;
+border-radius: 6px;
+border: 1.5px solid var(â€“border);
+background: var(â€“surface2);
+font-size: 11px;
+font-weight: 600;
+color: var(â€“muted);
+cursor: pointer;
+transition: all 0.12s;
+}
+.outlet-btn.active { border-color: var(â€“st); color: var(â€“st); background: rgba(255,149,0,0.08); }
+
+/* CART */
+.cart-header { padding: 14px 16px; border-bottom: 1px solid var(â€“border); }
+.cart-title { font-family: â€˜Syneâ€™, sans-serif; font-size: 14px; font-weight: 700; }
+.cart-brand {
+font-size: 11px;
+color: var(â€“muted);
+margin-top: 2px;
+}
+.cart-items {
+flex: 1;
+overflow-y: auto;
+padding: 8px;
+}
+.cart-items::-webkit-scrollbar { width: 3px; }
+.cart-item {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 8px 8px;
+border-radius: 8px;
+transition: background 0.1s;
+}
+.cart-item:hover { background: var(â€“surface2); }
+.ci-name { flex: 1; font-size: 12.5px; font-weight: 500; }
+.ci-price { font-family: â€˜DM Monoâ€™, monospace; font-size: 12px; color: var(â€“muted); }
+.ci-qty-wrap {
+display: flex;
+align-items: center;
+gap: 4px;
+}
+.ci-qty-btn {
+width: 22px; height: 22px;
+border-radius: 4px;
+border: 1px solid var(â€“border2);
+background: var(â€“surface2);
+color: var(â€“text);
+cursor: pointer;
+font-size: 14px;
+display: flex; align-items: center; justify-content: center;
+transition: background 0.1s;
+}
+.ci-qty-btn:hover { background: var(â€“surface3); }
+.ci-qty { font-family: â€˜DM Monoâ€™, monospace; font-size: 13px; min-width: 22px; text-align: center; }
+
+.cart-footer { padding: 12px 16px; border-top: 1px solid var(â€“border); }
+.cart-subtotal {
+display: flex;
+justify-content: space-between;
+font-size: 12.5px;
+color: var(â€“muted);
+margin-bottom: 6px;
+}
+.cart-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+}
+.cart-total-label {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 15px;
+font-weight: 700;
+}
+.cart-total-val {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 20px;
+font-weight: 900;
+color: var(â€“st);
+}
+.btn-bayar {
+width: 100%;
+padding: 13px;
+border-radius: 10px;
+border: none;
+background: linear-gradient(135deg, var(â€“st) 0%, #ffcc00 100%);
+color: #000;
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 15px;
+font-weight: 800;
+cursor: pointer;
+transition: filter 0.13s;
+letter-spacing: -0.01em;
+}
+.btn-bayar:hover { filter: brightness(1.08); }
+.btn-bayar:active { filter: brightness(0.95); }
+
+/* â”€â”€ REPORT CARDS â”€â”€ */
+.report-brand-card {
+background: var(â€“surface);
+border: 1px solid var(â€“border);
+border-radius: 12px;
+overflow: hidden;
+}
+.rbc-header {
+padding: 14px 18px;
+display: flex;
+align-items: center;
+gap: 10px;
+border-bottom: 1px solid var(â€“border);
+}
+.rbc-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.rbc-name { font-family: â€˜Syneâ€™, sans-serif; font-size: 14px; font-weight: 700; }
+.rbc-body { padding: 14px 18px; }
+.rbc-stat {
+display: flex;
+justify-content: space-between;
+font-size: 12.5px;
+padding: 5px 0;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.rbc-stat:last-child { border-bottom: none; }
+.rbc-stat-label { color: var(â€“muted); }
+.rbc-stat-val { font-family: â€˜DM Monoâ€™, monospace; font-weight: 500; }
+
+/* â”€â”€ AMOUNT COLORS â”€â”€ */
+.apos { color: var(â€“green); font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
+.aneg { color: var(â€“red); font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
+.anum { font-family: â€˜DM Monoâ€™, monospace; }
+
+/* â”€â”€ BADGES â”€â”€ */
+.badge {
+display: inline-block;
+font-size: 10px;
+font-weight: 700;
+padding: 2px 8px;
+border-radius: 20px;
+letter-spacing: 0.04em;
+}
+.badge-st { background: rgba(255,149,0,0.12); color: var(â€“st); }
+.badge-sc { background: rgba(0,201,167,0.12); color: var(â€“sc); }
+.badge-mk { background: rgba(255,64,129,0.12); color: var(â€“mk); }
+.badge-pos { background: rgba(46,204,113,0.12); color: var(â€“green); }
+.badge-neg { background: rgba(255,71,87,0.12); color: var(â€“red); }
+.badge-out { background: rgba(61,156,255,0.12); color: var(â€“blue); font-size: 9.5px; }
+
+/* â”€â”€ SUCCESS OVERLAY â”€â”€ */
+.success-overlay {
+display: none;
+position: fixed; inset: 0;
+background: rgba(0,0,0,0.85);
+z-index: 1000;
+align-items: center;
+justify-content: center;
+}
+.success-overlay.open { display: flex; }
+.success-box {
+background: var(â€“surface);
+border: 2px solid var(â€“green);
+border-radius: 20px;
+padding: 36px 40px;
+text-align: center;
+max-width: 340px;
+}
+.success-icon { font-size: 48px; margin-bottom: 12px; }
+.success-title { font-family: â€˜Syneâ€™, sans-serif; font-size: 22px; font-weight: 900; color: var(â€“green); margin-bottom: 6px; }
+.success-amount { font-family: â€˜Syneâ€™, sans-serif; font-size: 30px; font-weight: 900; color: var(â€“text); margin-bottom: 4px; }
+.success-sub { font-size: 13px; color: var(â€“muted); margin-bottom: 20px; }
+
+/* â”€â”€ PAYMENT METHOD â”€â”€ */
+.payment-method-wrap {
+margin-bottom: 10px;
+}
+.pay-label {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(â€“muted);
+margin-bottom: 6px;
+}
+.pay-btns {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 6px;
+}
+.pay-btn {
+padding: 8px;
+border-radius: 8px;
+border: 1.5px solid var(â€“border2);
+background: var(â€“surface2);
+font-size: 12px;
+font-weight: 600;
+color: var(â€“muted);
+cursor: pointer;
+text-align: center;
+transition: all 0.13s;
+user-select: none;
+}
+.pay-btn:hover { border-color: var(â€“text); color: var(â€“text); }
+.pay-btn.active { border-color: var(â€“green); color: var(â€“green); background: rgba(46,204,113,0.08); }
+.pay-btn.active-qris { border-color: var(â€“blue); color: var(â€“blue); background: rgba(61,156,255,0.08); }
+
+/* â”€â”€ NOTA PRINT â”€â”€ */
+.nota-modal {
+background: white;
+border-radius: 12px;
+width: 320px;
+max-height: 90vh;
+overflow-y: auto;
+color: #111;
+font-family: â€˜Courier Newâ€™, monospace;
+}
+.nota-inner {
+padding: 20px 20px 16px;
+}
+.nota-header { text-align: center; margin-bottom: 12px; }
+.nota-brand {
+font-family: â€˜Syneâ€™, sans-serif;
+font-size: 16px;
+font-weight: 900;
+color: #111;
+letter-spacing: -0.01em;
+}
+.nota-tagline { font-size: 10px; color: #666; margin-top: 2px; }
+.nota-divider {
+border: none;
+border-top: 1px dashed #ccc;
+margin: 10px 0;
+}
+.nota-info { font-size: 10.5px; color: #444; margin-bottom: 10px; line-height: 1.7; }
+.nota-items { width: 100%; font-size: 11px; border-collapse: collapse; margin-bottom: 8px; }
+.nota-items td { padding: 3px 0; vertical-align: top; }
+.nota-items .ni-name { color: #111; }
+.nota-items .ni-qty { color: #555; width: 30px; }
+.nota-items .ni-price { text-align: right; color: #555; white-space: nowrap; }
+.nota-items .ni-sub { text-align: right; font-weight: 700; color: #111; white-space: nowrap; }
+.nota-total-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 8px 0 4px;
+}
+.nota-total-label { font-size: 12px; font-weight: 700; }
+.nota-total-val { font-size: 16px; font-weight: 900; font-family: â€˜Syneâ€™, sans-serif; }
+.nota-method {
+font-size: 10px;
+text-align: center;
+padding: 5px 10px;
+border-radius: 4px;
+margin: 6px 0 10px;
+font-weight: 700;
+letter-spacing: 0.05em;
+}
+.nota-method.tunai { background: #f0faf4; color: #16a34a; border: 1px dashed #86efac; }
+.nota-method.qris { background: #eff6ff; color: #2563eb; border: 1px dashed #93c5fd; }
+.nota-footer { text-align: center; font-size: 10px; color: #999; line-height: 1.7; }
+
+@media print {
+body > * { display: none !important; }
+#nota-print-area {
+display: block !important;
+position: fixed;
+inset: 0;
+background: white;
+padding: 0;
+margin: 0;
+}
+#nota-print-area .nota-modal {
+width: 100%;
+max-height: none;
+border-radius: 0;
+box-shadow: none;
+}
+.nota-print-actions { display: none !important; }
+}
+
+/* scrollbar global */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(â€“border2); border-radius: 2px; }
+</style>
+
+<!-- SUPABASE SDK -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+
+<div id="login-overlay" style="position:fixed;inset:0;z-index:2000;background:#0a0a0f;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;">
+  <div style="width:320px;text-align:center">
+    <div style="font-size:40px;margin-bottom:8px">ðŸ </div>
+    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#ff9500,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px">SAM TAHES GRUP</div>
+    <div style="font-size:12px;color:#7a7a9a;margin-bottom:28px">Sistem Kasir & Keuangan</div>
+    <div id="pin-display" style="display:flex;justify-content:center;gap:12px;margin-bottom:8px">
+      <div class="pin-dot" id="pd0"></div>
+      <div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div>
+      <div class="pin-dot" id="pd3"></div>
+    </div>
+    <div id="login-label" style="font-size:12px;color:#7a7a9a;margin-bottom:20px;min-height:18px">Masukkan PIN</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:220px;margin:0 auto 16px">
+      <button class="pin-key" onclick="pinPress('1')">1</button>
+      <button class="pin-key" onclick="pinPress('2')">2</button>
+      <button class="pin-key" onclick="pinPress('3')">3</button>
+      <button class="pin-key" onclick="pinPress('4')">4</button>
+      <button class="pin-key" onclick="pinPress('5')">5</button>
+      <button class="pin-key" onclick="pinPress('6')">6</button>
+      <button class="pin-key" onclick="pinPress('7')">7</button>
+      <button class="pin-key" onclick="pinPress('8')">8</button>
+      <button class="pin-key" onclick="pinPress('9')">9</button>
+      <button class="pin-key" onclick="pinPress('clear')" style="color:#ff4757;font-size:20px">âŒ«</button>
+      <button class="pin-key" onclick="pinPress('0')">0</button>
+      <button class="pin-key" onclick="pinPress('ok')" style="background:#ff9500;color:#000;font-weight:800">OK</button>
+    </div>
+    <div id="login-error" style="display:none;color:#ff4757;font-size:12px">âŒ PIN salah, coba lagi</div>
+  </div>
+</div>
+
+<style>
+.pin-dot { width:13px;height:13px;border-radius:50%;border:2px solid #33334a;background:transparent;transition:all 0.15s; }
+.pin-dot.filled { background:#ff9500;border-color:#ff9500; }
+.pin-key { padding:15px;border-radius:10px;background:#12121a;border:1.5px solid #2a2a3a;color:#eeeaf8;font-size:20px;font-weight:700;cursor:pointer;transition:all 0.12s;font-family:'Syne',sans-serif; }
+.pin-key:hover { background:#1a1a24;border-color:#33334a; }
+.pin-key:active { transform:scale(0.94); }
+</style>
+
+<!-- SIDEBAR -->
+
+<nav class="sidebar">
+  <div class="brand-logo">
+    <div class="eyebrow">Sistem Kasir</div>
+    <h1>SAM TAHES<br>GRUP</h1>
+    <div class="sub">Holding Â· 3 Brand Â· 6 Outlet</div>
+  </div>
+
+  <div class="nav-group-label">Brand di bawah Grup</div>
+  <div class="nav-item active" style="--accent-color:var(--st)" onclick="showPage('pos-st',this)">
+    <span class="ni">ðŸ </span> Sam Tahes <span style="margin-left:auto;font-size:10px;color:var(--dim)">4 outlet</span>
+  </div>
+  <div class="nav-item" style="--accent-color:var(--sc)" onclick="showPage('pos-sc',this)">
+    <span class="ni">ðŸ¥Ÿ</span> Siomay Cihampelas <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+  </div>
+  <div class="nav-item" style="--accent-color:var(--mk)" onclick="showPage('pos-mk',this)">
+    <span class="ni">ðŸ”</span> Meg's Kitchen <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+  </div>
+
+  <div class="nav-group-label">Laporan</div>
+  <div class="nav-item" style="--accent-color:var(--yellow)" onclick="showPage('report-today',this)">
+    <span class="ni">ðŸ“‹</span> Laporan Hari Ini
+  </div>
+  <div class="nav-item" style="--accent-color:var(--blue)" onclick="showPage('report-all',this)">
+    <span class="ni">ðŸ“Š</span> Rekap Keuangan
+  </div>
+
+  <div class="nav-group-label">Pengeluaran</div>
+  <div class="nav-item" style="--accent-color:var(--red)" onclick="showPage('pengeluaran',this)">
+    <span class="ni">ðŸ’¸</span> Catat Pengeluaran
+  </div>
+
+  <div class="sidebar-footer" id="sb-clock" style="cursor:pointer" onclick="logout()" title="Klik untuk logout">â€”</div>
+</nav>
+
+<!-- MAIN WRAP -->
+
+<div class="main-wrap">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-date" id="topbar-date">â€”</span>
+      <span class="today-badge" id="topbar-day">â€”</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-ghost btn-sm" onclick="showPage('report-today', document.querySelector('.nav-item:nth-child(6)'))">ðŸ“‹ Lihat Laporan Hari Ini</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+
+```
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• POS: SAM TAHES â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page active" id="page-pos-st">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title" style="color:var(--st)">ðŸ  Sam Tahes</div>
+      <div class="pg-sub">Kukusan & rebusan Â· 4 Outlet Â· Buka 06.00â€“09.00</div>
+    </div>
+  </div>
+  <div class="pos-grid">
+    <!-- PRODUCTS -->
+    <div class="pos-products">
+      <div class="outlet-selector" id="st-outlets">
+        <div class="outlet-btn active" onclick="setOutlet('st',0,this)">Outlet 1 Â· Toko Roti</div>
+        <div class="outlet-btn" onclick="setOutlet('st',1,this)">Outlet 2 Â· Noodle Inc</div>
+        <div class="outlet-btn" onclick="setOutlet('st',2,this)">Outlet 3 Â· Jl. Kakap 88</div>
+        <div class="outlet-btn" onclick="setOutlet('st',3,this)">Outlet 4 Â· Jl. Veteran</div>
+      </div>
+      <div class="barcode-input-wrap">
+        <span class="barcode-icon">ðŸ“·</span>
+        <input class="barcode-field" id="st-barcode" placeholder="Scan barcode atau ketik kode... (ST-PK / ST-PB)" autocomplete="off" onkeydown="handleBarcode(event,'st')">
+      </div>
+      <div class="product-section-title">ðŸ“¦ Paket (Barcode)</div>
+      <div class="product-grid">
+        <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PK',name:'Paket Kecil',sub:'Thinwall 1000ml',price:12000,barcode:'ST-PK'})">
+          <div class="pb-name">Paket Kecil</div>
+          <div class="pb-price">Rp 12.000</div>
+          <div class="pb-barcode">ðŸ“· ST-PK Â· 1000ml</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PB',name:'Paket Besar',sub:'Thinwall 2000ml',price:24000,barcode:'ST-PB'})">
+          <div class="pb-name">Paket Besar</div>
+          <div class="pb-price">Rp 24.000</div>
+          <div class="pb-barcode">ðŸ“· ST-PB Â· 2000ml</div>
+        </div>
+      </div>
+      <div class="product-section-title">ðŸ·ï¸ Satuan</div>
+      <div class="product-grid">
+        <div class="product-btn" style="--pb-color:#a78bfa" onclick="addToCart('st',{id:'ST-TL',name:'Talas',price:3000})">
+          <div class="pb-name">Talas</div>
+          <div class="pb-price">Rp 3.000</div>
+        </div>
+        <div class="product-btn" style="--pb-color:#fbbf24" onclick="addToCart('st',{id:'ST-TW',name:'Telur Omega-3',price:6000})">
+          <div class="pb-name">Telur Omega-3</div>
+          <div class="pb-price">Rp 6.000</div>
+        </div>
+        <div class="product-btn" style="--pb-color:#d1d5db" onclick="addToCart('st',{id:'ST-TB',name:'Telur Biasa',price:4000})">
+          <div class="pb-name">Telur Biasa</div>
+          <div class="pb-price">Rp 4.000</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:11.5px;color:var(--muted)">
+        ðŸ’¡ <b>Cara scan barcode:</b> fokus ke kolom barcode di atas lalu tembak barcode scanner ke kode <code style="color:var(--st)">ST-PK</code> (Paket Kecil) atau <code style="color:var(--st)">ST-PB</code> (Paket Besar). Produk otomatis masuk keranjang.
+      </div>
+    </div>
+    <!-- CART -->
+    <div class="pos-cart">
+      <div class="cart-header">
+        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-brand"><span class="badge badge-st">SAM TAHES</span> Â· <span id="st-outlet-label">Outlet 1</span></div>
+      </div>
+      <div class="cart-items" id="st-cart-items">
+        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="st-subtotal">Rp 0</span></div>
+        <div class="cart-total">
+          <span class="cart-total-label">TOTAL</span>
+          <span class="cart-total-val" id="st-total">Rp 0</span>
+        </div>
+        <div class="payment-method-wrap" id="st-pay-wrap">
+          <div class="pay-label">Metode Bayar</div>
+          <div class="pay-btns">
+            <div class="pay-btn active" id="st-pay-tunai" onclick="setPayMethod('st','tunai')">ðŸ’µ Tunai</div>
+            <div class="pay-btn" id="st-pay-qris" onclick="setPayMethod('st','qris')">ðŸ“± QRIS BCA</div>
+          </div>
+        </div>
+        <button class="btn-bayar" onclick="bayar('st')">âœ“ BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('st')">ðŸ—‘ Kosongkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• POS: SIOMAY CIHAMPELAS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-pos-sc">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title" style="color:var(--sc)">ðŸ¥Ÿ Siomay Cihampelas</div>
+      <div class="pg-sub">Siomay Â· Paket & eceran Â· 1 Outlet</div>
+    </div>
+  </div>
+  <div class="pos-grid">
+    <div class="pos-products">
+      <div class="barcode-input-wrap">
+        <span class="barcode-icon">ðŸ“·</span>
+        <input class="barcode-field" id="sc-barcode" placeholder="Scan barcode paket... (SC-PAK)" autocomplete="off" onkeydown="handleBarcode(event,'sc')">
+      </div>
+      <div class="product-section-title">ðŸ“¦ Paket (Barcode)</div>
+      <div class="product-grid">
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-PAK',name:'Paket Siomay',sub:'Siomay+Tahu+Kentang+Pare+Kobis+TelurÂ½',price:15000,barcode:'SC-PAK'})">
+          <div class="pb-name">Paket Komplit</div>
+          <div class="pb-price">Rp 15.000</div>
+          <div class="pb-barcode">ðŸ“· SC-PAK</div>
+        </div>
+      </div>
+      <div class="product-section-title">ðŸ·ï¸ Eceran</div>
+      <div class="product-grid">
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-SY',name:'Siomay',price:3000})">
+          <div class="pb-name">Siomay</div>
+          <div class="pb-price">Rp 3.000 /pcs</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-TH',name:'Tahu',price:3000})">
+          <div class="pb-name">Tahu</div>
+          <div class="pb-price">Rp 3.000 /pcs</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-KT',name:'Kentang',price:2000})">
+          <div class="pb-name">Kentang</div>
+          <div class="pb-price">Rp 2.000 /pcs</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-KB',name:'Kobis/Kol',price:2000})">
+          <div class="pb-name">Kobis/Kol</div>
+          <div class="pb-price">Rp 2.000 /pcs</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-PR',name:'Pare',price:3000})">
+          <div class="pb-name">Pare</div>
+          <div class="pb-price">Rp 3.000 /pcs</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-TL',name:'Telur Setengah',price:3000})">
+          <div class="pb-name">Telur Setengah</div>
+          <div class="pb-price">Rp 3.000 /pcs</div>
+        </div>
+      </div>
+    </div>
+    <div class="pos-cart">
+      <div class="cart-header">
+        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-brand"><span class="badge badge-sc">SIOMAY CIHAMPELAS</span> Â· <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
+      </div>
+      <div class="cart-items" id="sc-cart-items">
+        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="sc-subtotal">Rp 0</span></div>
+        <div class="cart-total">
+          <span class="cart-total-label">TOTAL</span>
+          <span class="cart-total-val" style="color:var(--sc)" id="sc-total">Rp 0</span>
+        </div>
+        <div class="payment-method-wrap">
+          <div class="pay-label">Metode Bayar</div>
+          <div class="pay-btns">
+            <div class="pay-btn active" id="sc-pay-tunai" onclick="setPayMethod('sc','tunai')">ðŸ’µ Tunai</div>
+            <div class="pay-btn" id="sc-pay-qris" onclick="setPayMethod('sc','qris')">ðŸ“± QRIS BCA</div>
+          </div>
+        </div>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--sc),#00e5c4)" onclick="bayar('sc')">âœ“ BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('sc')">ðŸ—‘ Kosongkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• POS: MEG'S KITCHEN â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-pos-mk">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title" style="color:var(--mk)">ðŸ” Meg's Kitchen</div>
+      <div class="pg-sub">Street food Â· Penjualan satuan Â· 1 Outlet</div>
+    </div>
+  </div>
+  <div class="pos-grid">
+    <div class="pos-products">
+      <div class="product-section-title">ðŸ” Menu</div>
+      <div class="product-grid">
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-BG',name:'Burger',price:15000})">
+          <div class="pb-name">Burger</div>
+          <div class="pb-price">Rp 15.000</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-KG',name:'Kentang Goreng',price:7000})">
+          <div class="pb-name">Kentang Goreng</div>
+          <div class="pb-price">Rp 7.000</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-TK',name:'Takoyaki',price:10000})">
+          <div class="pb-name">Takoyaki</div>
+          <div class="pb-price">Rp 10.000 /porsi</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-YK',name:'Yakitori',price:10000})">
+          <div class="pb-name">Yakitori</div>
+          <div class="pb-price">Rp 10.000 /porsi</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-NS',name:'Nasi Putih',price:5000})">
+          <div class="pb-name">Nasi Putih</div>
+          <div class="pb-price">Rp 5.000</div>
+        </div>
+        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-AY',name:'Ayam Goreng',price:8000})">
+          <div class="pb-name">Ayam Goreng</div>
+          <div class="pb-price">Rp 8.000 /all varian</div>
+        </div>
+      </div>
+    </div>
+    <div class="pos-cart">
+      <div class="cart-header">
+        <div class="cart-title">ðŸ›’ Keranjang</div>
+        <div class="cart-brand"><span class="badge badge-mk">MEG'S KITCHEN</span> Â· <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
+      </div>
+      <div class="cart-items" id="mk-cart-items">
+        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="mk-subtotal">Rp 0</span></div>
+        <div class="cart-total">
+          <span class="cart-total-label">TOTAL</span>
+          <span class="cart-total-val" style="color:var(--mk)" id="mk-total">Rp 0</span>
+        </div>
+        <div class="payment-method-wrap">
+          <div class="pay-label">Metode Bayar</div>
+          <div class="pay-btns">
+            <div class="pay-btn active" id="mk-pay-tunai" onclick="setPayMethod('mk','tunai')">ðŸ’µ Tunai</div>
+            <div class="pay-btn" id="mk-pay-qris" onclick="setPayMethod('mk','qris')">ðŸ“± QRIS BCA</div>
+          </div>
+        </div>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--mk),#ff6eb4)" onclick="bayar('mk')">âœ“ BAYAR &amp; SIMPAN</button>
+        <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('mk')">ðŸ—‘ Kosongkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• LAPORAN HARI INI â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-report-today">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title">ðŸ“‹ Laporan Hari Ini</div>
+      <div class="pg-sub" id="report-today-sub">â€”</div>
+    </div>
+    <div class="pg-actions">
+      <button class="btn btn-ghost" onclick="renderTodayReport()">ðŸ”„ Refresh</button>
+    </div>
+  </div>
+
+  <!-- KPI Today -->
+  <div class="kpi-grid" id="today-kpi-grid">
+    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet Hari Ini</div><div class="kpi-val" id="today-omzet">Rp 0</div><div class="kpi-note" id="today-tx-count">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:var(--st)"><div class="kpi-accent"></div><div class="kpi-label">Sam Tahes</div><div class="kpi-val" id="today-st">Rp 0</div><div class="kpi-note" id="today-st-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:var(--sc)"><div class="kpi-accent"></div><div class="kpi-label">Siomay Cihampelas</div><div class="kpi-val" id="today-sc">Rp 0</div><div class="kpi-note" id="today-sc-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:var(--mk)"><div class="kpi-accent"></div><div class="kpi-label">Meg's Kitchen</div><div class="kpi-val" id="today-mk">Rp 0</div><div class="kpi-note" id="today-mk-n">0 transaksi</div></div>
+  </div>
+  <!-- Payment method KPIs -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+    <div class="kpi-card" style="--kc:var(--green)">
+      <div class="kpi-accent"></div>
+      <div class="kpi-label">ðŸ’µ Dana Tunai Hari Ini</div>
+      <div class="kpi-val" id="today-tunai">Rp 0</div>
+      <div class="kpi-note" id="today-tunai-n">0 transaksi</div>
+    </div>
+    <div class="kpi-card" style="--kc:var(--blue)">
+      <div class="kpi-accent"></div>
+      <div class="kpi-label">ðŸ“± Dana QRIS BCA Hari Ini</div>
+      <div class="kpi-val" id="today-qris">Rp 0</div>
+      <div class="kpi-note" id="today-qris-n" style="color:var(--blue)">0 transaksi Â· cek mutasi BCA</div>
+    </div>
+  </div>
+
+  <!-- Brand detail cards -->
+  <div class="g31" id="today-brand-cards"></div>
+
+  <!-- Outlet breakdown Sam Tahes -->
+  <div class="card" id="today-outlet-card" style="margin-bottom:16px">
+    <div class="card-head"><span class="card-title">ðŸ  Sam Tahes â€” Breakdown per Outlet</span></div>
+    <div class="card-body" id="today-outlet-body"></div>
+  </div>
+
+  <!-- Transaksi log -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-title">Log Transaksi Hari Ini</span>
+      <span class="card-chip" id="today-log-count">0 transaksi</span>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Waktu</th><th>Brand</th><th>Outlet</th><th>Metode</th><th>Item</th><th>Total</th></tr></thead>
+      <tbody id="today-log-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• REKAP KEUANGAN â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-report-all">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title">ðŸ“Š Rekap Keuangan</div>
+      <div class="pg-sub">Semua penjualan & pengeluaran</div>
+    </div>
+    <button class="btn btn-ghost" onclick="renderAllReport()">ðŸ”„ Refresh</button>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet</div><div class="kpi-val" id="all-omzet">Rp 0</div><div class="kpi-note">semua brand</div></div>
+    <div class="kpi-card" style="--kc:var(--red)"><div class="kpi-accent"></div><div class="kpi-label">Total Pengeluaran</div><div class="kpi-val" id="all-keluar">Rp 0</div><div class="kpi-note">semua brand</div></div>
+    <div class="kpi-card" style="--kc:var(--yellow)"><div class="kpi-accent"></div><div class="kpi-label">Laba Bersih</div><div class="kpi-val" id="all-laba">Rp 0</div><div class="kpi-note pos" id="all-margin">margin 0%</div></div>
+    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">Total Transaksi</div><div class="kpi-val" id="all-txcount">0</div><div class="kpi-note">semua waktu</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">ðŸ’µ Total Dana Tunai</div><div class="kpi-val" id="all-tunai">Rp 0</div><div class="kpi-note" id="all-tunai-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">ðŸ“± Total Dana QRIS BCA</div><div class="kpi-val" id="all-qris">Rp 0</div><div class="kpi-note" id="all-qris-n" style="color:var(--blue)">0 transaksi Â· crosscheck mutasi BCA</div></div>
+  </div>
+
+  <!-- Laba Rugi per brand -->
+  <div class="g31" id="all-brand-pl"></div>
+
+  <!-- Semua transaksi -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-title">Riwayat Semua Transaksi</span>
+      <div style="display:flex;gap:6px">
+        <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="filter-brand" onchange="renderAllReport()">
+          <option value="">Semua Brand</option>
+          <option value="st">Sam Tahes</option>
+          <option value="sc">Siomay Cihampelas</option>
+          <option value="mk">Meg's Kitchen</option>
+        </select>
+        <select class="form-control" style="width:auto;padding:5px 10px;font-size:12px" id="filter-type" onchange="renderAllReport()">
+          <option value="">Semua Tipe</option>
+          <option value="penjualan">Penjualan</option>
+          <option value="pengeluaran">Pengeluaran</option>
+        </select>
+      </div>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>Waktu</th><th>Brand</th><th>Tipe</th><th>Metode</th><th>Keterangan</th><th>Outlet</th><th style="text-align:right">Jumlah</th></tr></thead>
+      <tbody id="all-tx-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PENGELUARAN â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="page" id="page-pengeluaran">
+  <div class="pg-header">
+    <div>
+      <div class="pg-title">ðŸ’¸ Catat Pengeluaran</div>
+      <div class="pg-sub">Bahan baku, operasional, dll</div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <div class="card-head"><span class="card-title">Input Pengeluaran Baru</span></div>
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Brand</label>
+            <select class="form-control" id="pgl-brand">
+              <option value="st">Sam Tahes</option>
+              <option value="sc">Siomay Cihampelas</option>
+              <option value="mk">Meg's Kitchen</option>
+              <option value="grup">Sam Tahes Grup (umum)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kategori</label>
+            <select class="form-control" id="pgl-kat">
+              <option>Bahan Baku</option>
+              <option>Kemasan</option>
+              <option>Gaji/Upah</option>
+              <option>Sewa/Lapak</option>
+              <option>Gas/Listrik</option>
+              <option>Transportasi</option>
+              <option>Lain-lain</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Tanggal</label>
+            <input class="form-control" type="date" id="pgl-tgl">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Jumlah (Rp)</label>
+            <input class="form-control" type="number" id="pgl-jml" placeholder="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Keterangan</label>
+          <input class="form-control" id="pgl-ket" placeholder="Contoh: Beli ubi jalar 5kg, beli gas elpiji...">
+        </div>
+        <button class="btn btn-primary" style="width:100%" onclick="simpanPengeluaran()">ðŸ’¾ Simpan Pengeluaran</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">Pengeluaran Terakhir</span></div>
+      <table class="tbl">
+        <thead><tr><th>Tgl</th><th>Brand</th><th>Kategori</th><th style="text-align:right">Jumlah</th></tr></thead>
+        <tbody id="pgl-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+```
+
+  </div><!-- /main-content -->
+</div><!-- /main-wrap -->
+
+<!-- SUCCESS OVERLAY -->
+
+<div class="success-overlay" id="success-overlay">
+  <div class="success-box">
+    <div class="success-icon" id="success-icon">âœ…</div>
+    <div class="success-title" id="success-title">TERBAYAR!</div>
+    <div class="success-amount" id="success-amount">Rp 0</div>
+    <div class="success-sub" id="success-sub">â€”</div>
+    <div id="success-qris-note" style="display:none;margin-bottom:14px;padding:10px 14px;background:rgba(61,156,255,0.1);border:1px solid rgba(61,156,255,0.25);border-radius:8px;font-size:12px;color:#3d9cff;line-height:1.6">
+      ðŸ“± <b>Pembayaran QRIS</b><br>Pastikan notif masuk di app BCA sebelum menutup struk.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="btn btn-ghost" style="width:100%" onclick="closeSuccess()">Tutup</button>
+      <button class="btn" style="width:100%;background:#f8f8f8;color:#111;font-weight:700" onclick="printNota()">ðŸ–¨ï¸ Print Nota</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTA MODAL -->
+
+<div class="modal-overlay" id="nota-overlay">
+  <div id="nota-print-area">
+    <div class="nota-modal">
+      <div class="nota-inner" id="nota-content">
+        <!-- diisi oleh JS -->
+      </div>
+      <div class="nota-print-actions" style="padding:12px 16px;border-top:1px solid #eee;display:flex;gap:8px">
+        <button class="btn btn-ghost" style="flex:1;color:#333;border-color:#ddd" onclick="closeNota()">âœ• Tutup</button>
+        <button class="btn btn-primary" style="flex:1" onclick="window.print()">ðŸ–¨ï¸ Print Nota</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SUPABASE CONFIG
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const SUPABASE_URL = 'https://iohawplxldkgpudtudrs.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvaGF3cGx4bGRrZ3B1ZHR1ZHJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MTY0MzYsImV4cCI6MjA5MTE5MjQzNn0.89r2QpNqlcvhUOYvYz4F_aUFWYwAbyJlvMW4lzWo310';
+let sb = null;
+try {
+  sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+} catch(e) {
+  console.warn('Supabase tidak tersedia, pakai localStorage');
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// PIN CONFIG
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const PINS = {
+  '1111': { role:'kasir', brand:'st', outlet:0, label:'Kasir Outlet 1 Â· Toko Roti' },
+  '2222': { role:'kasir', brand:'st', outlet:1, label:'Kasir Outlet 2 Â· Noodle Inc' },
+  '3333': { role:'kasir', brand:'st', outlet:2, label:'Kasir Outlet 3 Â· Jl. Kakap 88' },
+  '4444': { role:'kasir', brand:'st', outlet:3, label:'Kasir Outlet 4 Â· Jl. Veteran' },
+  '5555': { role:'kasir', brand:'sc', outlet:0, label:'Kasir Siomay Cihampelas' },
+  '6666': { role:'kasir', brand:'mk', outlet:0, label:"Kasir Meg's Kitchen" },
+  '0000': { role:'owner', label:'Owner â€” Sam Tahes Grup' },
+};
+
+let currentUser = null;
+let pinBuffer = '';
+
+function pinPress(val) {
+  const err = document.getElementById('login-error');
+  err.style.display = 'none';
+  if (val === 'clear') {
+    pinBuffer = pinBuffer.slice(0,-1);
+  } else if (val === 'ok') {
+    doLogin();
+    return;
+  } else {
+    if (pinBuffer.length >= 4) return;
+    pinBuffer += val;
+    if (pinBuffer.length === 4) doLogin();
+  }
+  updatePinDots();
+}
+
+function updatePinDots() {
+  for (let i=0;i<4;i++) {
+    const d = document.getElementById('pd'+i);
+    if (d) d.className = 'pin-dot' + (i < pinBuffer.length ? ' filled' : '');
+  }
+}
+
+function doLogin() {
+  const user = PINS[pinBuffer];
+  if (!user) {
+    document.getElementById('login-error').style.display = 'block';
+    document.getElementById('login-label').textContent = 'PIN salah';
+    pinBuffer = '';
+    updatePinDots();
+    setTimeout(()=>{
+      document.getElementById('login-label').textContent = 'Masukkan PIN';
+    }, 1500);
+    return;
+  }
+  currentUser = { ...user, pin: pinBuffer };
+  pinBuffer = '';
+  updatePinDots();
+  document.getElementById('login-overlay').style.display = 'none';
+  initApp();
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// STATE
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const BRAND_NAMES = { st:'Sam Tahes', sc:'Siomay Cihampelas', mk:"Meg's Kitchen", grup:'Sam Tahes Grup' };
+const BRAND_COLORS = { st:'var(--st)', sc:'var(--sc)', mk:'var(--mk)' };
+const OUTLET_NAMES = ['Outlet 1 Â· Toko Roti Gaya Baru','Outlet 2 Â· Depan Noodle Inc','Outlet 3 Â· Jl. Kakap 88','Outlet 4 Â· Jl. Veteran'];
+
+let carts = { st:[], sc:[], mk:[] };
+let outlets = { st: 0 };
+let payMethods = { st:'tunai', sc:'tunai', mk:'tunai' };
+let lastTx = null;
+let txList = [];
+let pglList = [];
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// SUPABASE SYNC
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+async function loadData() {
+  if (!sb) {
+    txList = JSON.parse(localStorage.getItem('stg_tx')||'[]');
+    pglList = JSON.parse(localStorage.getItem('stg_pgl')||'[]');
+    return;
+  }
+  try {
+    const { data: txData } = await sb.from('transaksi').select('*').order('created_at', { ascending: false });
+    const { data: pglData } = await sb.from('pengeluaran').select('*').order('created_at', { ascending: false });
+    txList = (txData||[]).map(t=>({
+      id: t.id,
+      type: 'penjualan',
+      brand: t.brand,
+      outlet: t.outlet,
+      time: t.time,
+      dateKey: t.date_key,
+      items: t.items||[],
+      total: t.total,
+      payMethod: t.pay_method
+    }));
+    pglList = (pglData||[]).map(p=>({
+      id: p.id,
+      brand: p.brand,
+      kategori: p.kategori,
+      tanggal: p.tanggal,
+      ket: p.ket,
+      jumlah: p.jumlah,
+      dateKey: p.tanggal
+    }));
+  } catch(e) {
+    console.error('Load error:', e);
+    txList = JSON.parse(localStorage.getItem('stg_tx')||'[]');
+    pglList = JSON.parse(localStorage.getItem('stg_pgl')||'[]');
+  }
+}
+
+async function saveTx(tx) {
+  if (!sb) {
+    txList.push(tx);
+    localStorage.setItem('stg_tx', JSON.stringify(txList));
+    return;
+  }
+  try {
+    const { error } = await sb.from('transaksi').insert({
+      brand: tx.brand,
+      outlet: tx.outlet,
+      time: tx.time,
+      date_key: tx.dateKey,
+      items: tx.items,
+      total: tx.total,
+      pay_method: tx.payMethod
+    });
+    if (error) throw error;
+    await loadData();
+  } catch(e) {
+    console.error('Save tx error:', e);
+    txList.push(tx);
+    localStorage.setItem('stg_tx', JSON.stringify(txList));
+  }
+}
+
+async function savePgl(pgl) {
+  if (!sb) {
+    pglList.push(pgl);
+    localStorage.setItem('stg_pgl', JSON.stringify(pglList));
+    return;
+  }
+  try {
+    const { error } = await sb.from('pengeluaran').insert({
+      brand: pgl.brand,
+      kategori: pgl.kategori,
+      tanggal: pgl.tanggal,
+      ket: pgl.ket,
+      jumlah: pgl.jumlah
+    });
+    if (error) throw error;
+    await loadData();
+  } catch(e) {
+    console.error('Save pgl error:', e);
+    pglList.push(pgl);
+    localStorage.setItem('stg_pgl', JSON.stringify(pglList));
+  }
+}
+
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// INIT APP â€” dipanggil setelah login
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+async function initApp() {
+  // Tampilkan sidebar & main
+  document.querySelector('.sidebar').style.display = 'flex';
+  document.querySelector('.main-wrap').style.display = 'flex';
+
+  // Set outlet otomatis sesuai PIN kasir
+  if (currentUser.role === 'kasir') {
+    outlets[currentUser.brand] = currentUser.outlet;
+    // Langsung arahkan ke kasir brand yang sesuai
+    const navItems = document.querySelectorAll('.nav-item');
+    const brandPageMap = { st:0, sc:1, mk:2 };
+    showPage('pos-'+currentUser.brand, navItems[brandPageMap[currentUser.brand]]);
+    // Sembunyikan nav yang tidak perlu untuk kasir
+    hideCashierNav();
+  } else {
+    // Owner: tampilkan semua
+    showPage('report-today', document.querySelectorAll('.nav-item')[3]);
+  }
+
+  // Load data dari Supabase
+  await loadData();
+  renderAll();
+  setTodayDate();
+  updateClock();
+
+  // Update label user di sidebar
+  document.querySelector('.sidebar-footer').textContent = 'ðŸ‘¤ ' + currentUser.label;
+}
+
+function hideCashierNav() {
+  // Kasir hanya lihat brand mereka sendiri + logout
+  const navItems = document.querySelectorAll('.nav-item');
+  const brandMap = { st:[0], sc:[1], mk:[2] };
+  const allowed = brandMap[currentUser.brand] || [];
+  navItems.forEach((n,i) => {
+    if (!allowed.includes(i)) n.style.display = 'none';
+  });
+  document.querySelectorAll('.nav-group-label').forEach(l => l.style.display = 'none');
+}
+
+function logout() {
+  currentUser = null;
+  pinBuffer = '';
+  updatePinDots();
+  document.getElementById('login-overlay').style.display = 'flex';
+  document.getElementById('login-label').textContent = 'Masukkan PIN';
+  document.getElementById('login-error').style.display = 'none';
+  // Restore nav visibility
+  document.querySelectorAll('.nav-item').forEach(n => n.style.display = '');
+  document.querySelectorAll('.nav-group-label').forEach(l => l.style.display = '');
+}
+
+// Sembunyikan sidebar & main sampai login
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.sidebar').style.display = 'none';
+  document.querySelector('.main-wrap').style.display = 'none';
+  setTodayDate();
+  updateClock();
+});
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// CLOCK & DATE
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function updateClock() {
+  const now = new Date();
+  const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  document.getElementById('topbar-date').textContent = now.toLocaleDateString('id-ID', opts);
+  document.getElementById('topbar-day').textContent = now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  document.getElementById('sb-clock').textContent = now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}) + ' WIB';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// NAVIGATION
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function showPage(id, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  if (navEl) navEl.classList.add('active');
+  if (id === 'report-today') renderTodayReport();
+  if (id === 'report-all') renderAllReport();
+  if (id === 'pengeluaran') { renderPengeluaran(); setTodayOnPgl(); }
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// OUTLET (SAM TAHES)
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function setOutlet(brand, idx, el) {
+  outlets[brand] = idx;
+  el.closest('.outlet-selector').querySelectorAll('.outlet-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('st-outlet-label').textContent = 'Outlet '+(idx+1);
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// BARCODE SCANNER
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const BARCODES = {
+  'ST-PK': { brand:'st', item:{id:'ST-PK',name:'Paket Kecil',sub:'Thinwall 1000ml',price:12000,barcode:'ST-PK'} },
+  'ST-PB': { brand:'st', item:{id:'ST-PB',name:'Paket Besar',sub:'Thinwall 2000ml',price:24000,barcode:'ST-PB'} },
+  'SC-PAK': { brand:'sc', item:{id:'SC-PAK',name:'Paket Komplit',sub:'Paket Siomay Lengkap',price:15000,barcode:'SC-PAK'} },
+};
+
+function handleBarcode(e, brand) {
+  if (e.key !== 'Enter') return;
+  const val = e.target.value.trim().toUpperCase();
+  if (!val) return;
+  const found = BARCODES[val];
+  if (found && found.brand === brand) {
+    addToCart(brand, found.item);
+    e.target.style.borderColor = 'var(--green)';
+    setTimeout(()=>{ e.target.style.borderColor=''; }, 600);
+  } else {
+    e.target.style.borderColor = 'var(--red)';
+    setTimeout(()=>{ e.target.style.borderColor=''; }, 800);
+  }
+  e.target.value = '';
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// CART
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function addToCart(brand, item) {
+  const existing = carts[brand].find(i => i.id === item.id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    carts[brand].push({ ...item, qty: 1 });
+  }
+  renderCart(brand);
+}
+
+function changeQty(brand, id, delta) {
+  const idx = carts[brand].findIndex(i => i.id === id);
+  if (idx < 0) return;
+  carts[brand][idx].qty += delta;
+  if (carts[brand][idx].qty <= 0) carts[brand].splice(idx, 1);
+  renderCart(brand);
+}
+
+function clearCart(brand) {
+  carts[brand] = [];
+  renderCart(brand);
+}
+
+function renderCart(brand) {
+  const items = carts[brand];
+  const wrap = document.getElementById(brand + '-cart-items');
+  if (!items.length) {
+    wrap.innerHTML = '<div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>';
+  } else {
+    wrap.innerHTML = items.map(i => `
+      <div class="cart-item">
+        <div style="flex:1">
+          <div class="ci-name">${i.name}</div>
+          <div class="ci-price">${rp(i.price)} /unit</div>
+        </div>
+        <div class="ci-qty-wrap">
+          <button class="ci-qty-btn" onclick="changeQty('${brand}','${i.id}',-1)">âˆ’</button>
+          <span class="ci-qty">${i.qty}</span>
+          <button class="ci-qty-btn" onclick="changeQty('${brand}','${i.id}',1)">+</button>
+        </div>
+        <div style="min-width:70px;text-align:right;font-family:'DM Mono',monospace;font-size:12.5px;font-weight:600">${rp(i.price*i.qty)}</div>
+      </div>`).join('');
+  }
+  const total = items.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById(brand+'-subtotal').textContent = rp(total);
+  document.getElementById(brand+'-total').textContent = rp(total);
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// PAYMENT METHOD
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function setPayMethod(brand, method) {
+  payMethods[brand] = method;
+  const tunaiBtn = document.getElementById(brand+'-pay-tunai');
+  const qrisBtn = document.getElementById(brand+'-pay-qris');
+  if (tunaiBtn) {
+    tunaiBtn.className = 'pay-btn' + (method==='tunai' ? ' active' : '');
+    qrisBtn.className = 'pay-btn' + (method==='qris' ? ' active-qris' : '');
+  }
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// BAYAR
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+async function bayar(brand) {
+  const items = carts[brand];
+  if (!items.length) { alert('Keranjang kosong!'); return; }
+  const total = items.reduce((s,i)=>s+i.price*i.qty,0);
+  const now = new Date();
+  const method = payMethods[brand] || 'tunai';
+  const tx = {
+    id: Date.now(),
+    type: 'penjualan',
+    brand,
+    outlet: brand === 'st' ? outlets.st : null,
+    time: now.toISOString(),
+    dateKey: now.toISOString().split('T')[0],
+    items: items.map(i=>({...i})),
+    total,
+    payMethod: method
+  };
+  // Simpan ke Supabase
+  await saveTx(tx);
+  lastTx = tx;
+  clearCart(brand);
+  setPayMethod(brand, 'tunai');
+  // success overlay
+  const isQris = method === 'qris';
+  document.getElementById('success-icon').textContent = isQris ? 'ðŸ“±' : 'âœ…';
+  document.getElementById('success-title').textContent = isQris ? 'QRIS DITERIMA!' : 'TERBAYAR!';
+  document.getElementById('success-title').style.color = isQris ? 'var(--blue)' : 'var(--green)';
+  document.getElementById('success-amount').textContent = rp(total);
+  const itemsSummary = tx.items.map(i=>`${i.qty}Ã— ${i.name}`).join(', ');
+  document.getElementById('success-sub').textContent = `${BRAND_NAMES[brand]} Â· ${itemsSummary}`;
+  document.getElementById('success-qris-note').style.display = isQris ? 'block' : 'none';
+  document.getElementById('success-overlay').classList.add('open');
+}
+
+function closeSuccess() {
+  document.getElementById('success-overlay').classList.remove('open');
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// NOTA
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+const BRAND_OUTLETS = {
+  st: ['Outlet 1 Â· Samping Toko Roti Gaya Baru','Outlet 2 Â· Depan Noodle Inc','Outlet 3 Â· Jl. Kakap 88','Outlet 4 Â· Jl. Veteran'],
+  sc: ['Main Outlet'],
+  mk: ['Main Outlet']
+};
+const BRAND_TAGLINE = {
+  st: 'Kukusan & Rebusan Â· Buka 06.00â€“09.00',
+  sc: 'Siomay Komplit & Eceran',
+  mk: 'Street Food Â· Burger Â· Takoyaki Â· Yakitori'
+};
+
+function printNota() {
+  if (!lastTx) return;
+  const t = lastTx;
+  const now = new Date(t.time);
+  const tglStr = now.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const jamStr = now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  const outletStr = t.brand==='st' && t.outlet!=null ? BRAND_OUTLETS.st[t.outlet] : (BRAND_OUTLETS[t.brand]||['â€”'])[0];
+  const isQris = t.payMethod==='qris';
+
+  const itemRows = t.items.map(i => `
+    <tr>
+      <td class="ni-name" colspan="2">${i.name}</td>
+    </tr>
+    <tr>
+      <td class="ni-qty">${i.qty}Ã—  @${rpNota(i.price)}</td>
+      <td class="ni-sub">${rpNota(i.price * i.qty)}</td>
+    </tr>`).join('');
+
+  const notaHTML = `
+    <div class="nota-header">
+      <div style="font-size:22px;margin-bottom:4px">${t.brand==='st'?'ðŸ ':t.brand==='sc'?'ðŸ¥Ÿ':'ðŸ”'}</div>
+      <div class="nota-brand">${BRAND_NAMES[t.brand]}</div>
+      <div class="nota-tagline">${BRAND_TAGLINE[t.brand]}</div>
+      <div class="nota-tagline" style="margin-top:2px">SAM TAHES GRUP</div>
+    </div>
+    <hr class="nota-divider">
+    <div class="nota-info">
+      <div>${tglStr}</div>
+      <div>Pukul : ${jamStr}</div>
+      <div>Lokasi: ${outletStr}</div>
+      <div>No. : #${String(t.id).slice(-6)}</div>
+    </div>
+    <hr class="nota-divider">
+    <table class="nota-items">
+      <tbody>${itemRows}</tbody>
+    </table>
+    <hr class="nota-divider">
+    <div class="nota-total-row">
+      <span class="nota-total-label">TOTAL</span>
+      <span class="nota-total-val">${rpNota(t.total)}</span>
+    </div>
+    <div class="nota-method ${isQris?'qris':'tunai'}">
+      ${isQris ? 'ðŸ“± QRIS BCA' : 'ðŸ’µ TUNAI'}
+    </div>
+    <hr class="nota-divider">
+    <div class="nota-footer">
+      Terima kasih sudah membeli!<br>
+      Semoga sehat & berkah ðŸ™<br>
+      <span style="font-size:9px;color:#bbb">â€” Sam Tahes Grup â€”</span>
+    </div>`;
+
+  document.getElementById('nota-content').innerHTML = notaHTML;
+  document.getElementById('nota-overlay').classList.add('open');
+}
+
+function closeNota() {
+  document.getElementById('nota-overlay').classList.remove('open');
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// PENGELUARAN
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function setTodayOnPgl() {
+  document.getElementById('pgl-tgl').value = new Date().toISOString().split('T')[0];
+}
+
+async function simpanPengeluaran() {
+  const jml = parseFloat(document.getElementById('pgl-jml').value);
+  const ket = document.getElementById('pgl-ket').value.trim();
+  if (!ket || isNaN(jml) || jml <= 0) { alert('Lengkapi keterangan dan jumlah!'); return; }
+  const pgl = {
+    id: Date.now(),
+    brand: document.getElementById('pgl-brand').value,
+    kategori: document.getElementById('pgl-kat').value,
+    tanggal: document.getElementById('pgl-tgl').value,
+    ket, jumlah: jml,
+    dateKey: document.getElementById('pgl-tgl').value
+  };
+  await savePgl(pgl);
+  document.getElementById('pgl-ket').value = '';
+  document.getElementById('pgl-jml').value = '';
+  renderPengeluaran();
+  alert('Pengeluaran tersimpan âœ…');
+}
+
+function renderPengeluaran() {
+  const recent = [...pglList].sort((a,b)=>b.id-a.id).slice(0,20);
+  const t = document.getElementById('pgl-tbody');
+  t.innerHTML = recent.length ? recent.map(p=>`
+    <tr>
+      <td style="color:var(--muted);font-size:11px">${fmtTgl(p.tanggal)}</td>
+      <td><span class="badge badge-${p.brand==='grup'?'st':p.brand}">${BRAND_NAMES[p.brand]||p.brand}</span></td>
+      <td><span style="font-size:11px;color:var(--muted)">${p.kategori}</span><br><span style="font-size:12px">${p.ket}</span></td>
+      <td class="aneg" style="text-align:right">âˆ’${rp(p.jumlah)}</td>
+    </tr>`).join('') : '<tr><td colspan="4" style="text-align:center;padding:20px;color:var(--dim)">Belum ada pengeluaran</td></tr>';
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// LAPORAN HARI INI
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function renderTodayReport() {
+  const todayKey = new Date().toISOString().split('T')[0];
+  const todayTx = txList.filter(t => t.dateKey === todayKey && t.type === 'penjualan');
+  document.getElementById('report-today-sub').textContent = fmtTgl(todayKey);
+
+  const brands = ['st','sc','mk'];
+  let totalOmzet = 0;
+
+  brands.forEach(b => {
+    const bTx = todayTx.filter(t=>t.brand===b);
+    const bTotal = bTx.reduce((s,t)=>s+t.total,0);
+    totalOmzet += bTotal;
+    document.getElementById('today-'+b).textContent = rp(bTotal);
+    document.getElementById('today-'+b+'-n').textContent = bTx.length+' transaksi';
+  });
+  document.getElementById('today-omzet').textContent = rp(totalOmzet);
+  document.getElementById('today-tx-count').textContent = todayTx.length+' transaksi';
+
+  // Payment method breakdown
+  const tunaiTx = todayTx.filter(t=>!t.payMethod||t.payMethod==='tunai');
+  const qrisTx = todayTx.filter(t=>t.payMethod==='qris');
+  const tunaiTotal = tunaiTx.reduce((s,t)=>s+t.total,0);
+  const qrisTotal = qrisTx.reduce((s,t)=>s+t.total,0);
+  document.getElementById('today-tunai').textContent = rp(tunaiTotal);
+  document.getElementById('today-tunai-n').textContent = tunaiTx.length+' transaksi';
+  document.getElementById('today-qris').textContent = rp(qrisTotal);
+  document.getElementById('today-qris-n').textContent = qrisTx.length+' transaksi Â· crosscheck mutasi BCA';
+
+  // Brand detail cards
+  const bCards = document.getElementById('today-brand-cards');
+  bCards.innerHTML = brands.map(b=>{
+    const bTx = todayTx.filter(t=>t.brand===b);
+    const bTotal = bTx.reduce((s,t)=>s+t.total,0);
+    const itemCount = bTx.reduce((s,t)=>s+t.items.reduce((ss,i)=>ss+i.qty,0),0);
+    // item breakdown
+    const itemMap = {};
+    bTx.forEach(t=>t.items.forEach(i=>{ itemMap[i.name]=(itemMap[i.name]||0)+i.qty; }));
+    const colorVar = b==='st'?'var(--st)':b==='sc'?'var(--sc)':'var(--mk)';
+    return `<div class="report-brand-card">
+      <div class="rbc-header">
+        <div class="rbc-dot" style="background:${colorVar}"></div>
+        <div>
+          <div class="rbc-name">${BRAND_NAMES[b]}</div>
+          <div style="font-size:11px;color:var(--muted)">${bTx.length} transaksi Â· ${itemCount} item terjual</div>
+        </div>
+        <div style="margin-left:auto;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:${colorVar}">${rp(bTotal)}</div>
+      </div>
+      <div class="rbc-body">
+        ${Object.entries(itemMap).length ? Object.entries(itemMap).map(([k,v])=>`
+          <div class="rbc-stat">
+            <span class="rbc-stat-label">${k}</span>
+            <span class="rbc-stat-val" style="color:${colorVar}">${v}Ã— <span style="color:var(--muted)">=</span></span>
+          </div>`).join('') : '<div style="color:var(--dim);font-size:12px;padding:8px 0">Belum ada penjualan</div>'}
+      </div>
+    </div>`;
+  }).join('');
+
+  // Outlet breakdown Sam Tahes
+  const outletBody = document.getElementById('today-outlet-body');
+  const stTx = todayTx.filter(t=>t.brand==='st');
+  if (!stTx.length) {
+    outletBody.innerHTML = '<div style="color:var(--dim);font-size:13px;padding:4px 0">Belum ada penjualan Sam Tahes hari ini</div>';
+  } else {
+    const byOutlet = OUTLET_NAMES.map((name,idx)=>{
+      const otx = stTx.filter(t=>t.outlet===idx);
+      const total = otx.reduce((s,t)=>s+t.total,0);
+      const pkQty = otx.reduce((s,t)=>s+t.items.filter(i=>i.id==='ST-PK').reduce((ss,i)=>ss+i.qty,0),0);
+      const pbQty = otx.reduce((s,t)=>s+t.items.filter(i=>i.id==='ST-PB').reduce((ss,i)=>ss+i.qty,0),0);
+      return {name,total,pkQty,pbQty,txCount:otx.length};
+    });
+    outletBody.innerHTML = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+      ${byOutlet.map(o=>`
+        <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${o.name}</div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--st)">${rp(o.total)}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">${o.txCount} transaksi</div>
+          <div style="font-size:11px;margin-top:4px;color:var(--text)">PK: <b>${o.pkQty}</b> Â· PB: <b>${o.pbQty}</b></div>
+        </div>`).join('')}
+    </div>`;
+  }
+
+  // Log transaksi
+  const sorted = [...todayTx].sort((a,b)=>b.id-a.id);
+  document.getElementById('today-log-count').textContent = sorted.length+' transaksi';
+  const tbody = document.getElementById('today-log-tbody');
+  tbody.innerHTML = sorted.length ? sorted.map(t=>{
+    const colorClass = t.brand==='st'?'badge-st':t.brand==='sc'?'badge-sc':'badge-mk';
+    const outletLabel = t.brand==='st'&&t.outlet!=null ? OUTLET_NAMES[t.outlet] : 'â€”';
+    const itemStr = t.items.map(i=>`${i.qty}Ã— ${i.name}`).join(', ');
+    const isQris = t.payMethod==='qris';
+    const methodBadge = isQris
+      ? `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">ðŸ“± QRIS</span>`
+      : `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">ðŸ’µ TUNAI</span>`;
+    return `<tr>
+      <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${new Date(t.time).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}</td>
+      <td><span class="badge ${colorClass}">${BRAND_NAMES[t.brand]}</span></td>
+      <td style="font-size:11px;color:var(--muted)">${outletLabel}</td>
+      <td>${methodBadge}</td>
+      <td style="font-size:12px">${itemStr}</td>
+      <td class="apos">${rp(t.total)}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--dim)">Belum ada transaksi hari ini</td></tr>';
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// REKAP KEUANGAN
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function renderAllReport() {
+  const bFilter = document.getElementById('filter-brand').value;
+  const tFilter = document.getElementById('filter-type').value;
+
+  const allPenjualan = txList.filter(t=>t.type==='penjualan');
+  const allPengeluaran = pglList;
+  const totalOmzet = allPenjualan.reduce((s,t)=>s+t.total,0);
+  const totalKeluar = allPengeluaran.reduce((s,p)=>s+p.jumlah,0);
+  const laba = totalOmzet - totalKeluar;
+  const margin = totalOmzet>0 ? Math.round(laba/totalOmzet*100) : 0;
+
+  document.getElementById('all-omzet').textContent = rp(totalOmzet);
+  document.getElementById('all-keluar').textContent = rp(totalKeluar);
+  document.getElementById('all-laba').textContent = rp(laba);
+  document.getElementById('all-laba').style.color = laba>=0?'var(--green)':'var(--red)';
+  document.getElementById('all-margin').textContent = 'margin '+margin+'%';
+  document.getElementById('all-txcount').textContent = allPenjualan.length + allPengeluaran.length;
+
+  // Payment method totals
+  const allTunai = allPenjualan.filter(t=>!t.payMethod||t.payMethod==='tunai');
+  const allQris = allPenjualan.filter(t=>t.payMethod==='qris');
+  document.getElementById('all-tunai').textContent = rp(allTunai.reduce((s,t)=>s+t.total,0));
+  document.getElementById('all-tunai-n').textContent = allTunai.length+' transaksi';
+  document.getElementById('all-qris').textContent = rp(allQris.reduce((s,t)=>s+t.total,0));
+  document.getElementById('all-qris-n').textContent = allQris.length+' transaksi Â· crosscheck mutasi BCA';
+
+  // Per brand P&L
+  const brands = ['st','sc','mk'];
+  document.getElementById('all-brand-pl').innerHTML = brands.map(b=>{
+    const bSales = allPenjualan.filter(t=>t.brand===b).reduce((s,t)=>s+t.total,0);
+    const bPgl = allPengeluaran.filter(p=>p.brand===b||p.brand==='grup').reduce((s,p)=>s+(p.brand===b?p.jumlah:p.jumlah/3),0);
+    const bLaba = bSales - bPgl;
+    const colorVar = b==='st'?'var(--st)':b==='sc'?'var(--sc)':'var(--mk)';
+    return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+      <div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+        <div style="width:8px;height:8px;border-radius:50%;background:${colorVar}"></div>
+        <span style="font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700">${BRAND_NAMES[b]}</span>
+      </div>
+      <div style="padding:12px 16px">
+        <div class="rbc-stat"><span class="rbc-stat-label">Total Penjualan</span><span class="apos">${rp(bSales)}</span></div>
+        <div class="rbc-stat"><span class="rbc-stat-label">Total Pengeluaran</span><span class="aneg">${rp(Math.round(bPgl))}</span></div>
+        <div class="rbc-stat" style="border-bottom:none"><span class="rbc-stat-label" style="font-weight:700;color:var(--text)">Laba Bersih</span><span style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:${bLaba>=0?'var(--green)':'var(--red)'}">${rp(Math.round(bLaba))}</span></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Semua tx list
+  let txCombined = [];
+  const bF = bFilter;
+  const tF = tFilter;
+  allPenjualan.forEach(t=>{ if((!bF||t.brand===bF)&&(!tF||tF==='penjualan')) txCombined.push({...t,_type:'penjualan'}); });
+  allPengeluaran.forEach(p=>{ if((!bF||p.brand===bF||bF==='')&&(!tF||tF==='pengeluaran')) txCombined.push({...p,_type:'pengeluaran',total:p.jumlah,time:p.tanggal+'T00:00:00',brand:p.brand}); });
+  txCombined.sort((a,b)=>new Date(b.time)-new Date(a.time));
+
+  const tbody = document.getElementById('all-tx-tbody');
+  tbody.innerHTML = txCombined.length ? txCombined.map(t=>{
+    const bKey = t.brand==='grup'?'st':t.brand;
+    const colorClass = bKey==='st'?'badge-st':bKey==='sc'?'badge-sc':'badge-mk';
+    const outLabel = t._type==='penjualan'&&t.brand==='st'&&t.outlet!=null ? '<span class="badge badge-out">'+OUTLET_NAMES[t.outlet].split('Â·')[0].trim()+'</span>' : '';
+    const desc = t._type==='penjualan' ? t.items.map(i=>`${i.qty}Ã— ${i.name}`).join(', ') : (t.ket||'â€”')+' ['+t.kategori+']';
+    const amtClass = t._type==='penjualan'?'apos':'aneg';
+    const amtPrefix = t._type==='penjualan'?'+':'âˆ’';
+    const isQris = t.payMethod==='qris';
+    const methodBadge = t._type==='penjualan'
+      ? (isQris
+          ? `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">ðŸ“± QRIS</span>`
+          : `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">ðŸ’µ TUNAI</span>`)
+      : `<span style="font-size:10px;color:var(--dim)">â€”</span>`;
+    return `<tr>
+      <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${fmtTime(t.time)}</td>
+      <td><span class="badge ${colorClass}">${BRAND_NAMES[t.brand]||t.brand}</span></td>
+      <td><span style="font-size:11px;padding:2px 7px;border-radius:4px;background:${t._type==='penjualan'?'rgba(46,204,113,0.1)':'rgba(255,71,87,0.1)'};color:${t._type==='penjualan'?'var(--green)':'var(--red)'}">${t._type.toUpperCase()}</span></td>
+      <td>${methodBadge}</td>
+      <td style="font-size:12px;max-width:200px">${desc}</td>
+      <td>${outLabel}</td>
+      <td class="${amtClass}" style="text-align:right">${amtPrefix}${rp(t.total||t.jumlah)}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--dim)">Belum ada data</td></tr>';
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// HELPERS
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+function rp(n) {
+  return 'Rp ' + Math.abs(n).toLocaleString('id-ID');
+}
+function rpNota(n) {
+  return 'Rp ' + Math.abs(n).toLocaleString('id-ID');
+}
+function fmtTgl(d) {
+  return new Date(d+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});
+}
+function fmtTime(t) {
+  const d = new Date(t);
+  return d.toLocaleDateString('id-ID',{day:'numeric',month:'short'})+' '+d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+}
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// INIT
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+document.addEventListener('DOMContentLoaded', () => {
+  setTodayOnPgl();
+});
+</script>
+
+</body>
+</html>
