@@ -31,9 +31,9 @@
 
 - { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-  background: var(â€“bg);
-  color: var(â€“text);
+  body { background: #0a0a0f !important; color: #eeeaf8 !important;
+  background: #0a0a0f;
+  color: #eeeaf8;
   font-family: â€˜Plus Jakarta Sansâ€™, sans-serif;
   min-height: 100vh;
   display: flex;
@@ -44,8 +44,8 @@
 .sidebar {
 width: 240px;
 flex-shrink: 0;
-background: var(â€“surface);
-border-right: 1px solid var(â€“border);
+background: #12121a;
+border-right: 1px solid #2a2a3a;
 display: flex;
 flex-direction: column;
 height: 100vh;
@@ -54,17 +54,17 @@ position: sticky;
 top: 0;
 }
 .sidebar::-webkit-scrollbar { width: 3px; }
-.sidebar::-webkit-scrollbar-thumb { background: var(â€“border2); }
+.sidebar::-webkit-scrollbar-thumb { background: #33334a; }
 
 .brand-logo {
 padding: 20px 18px 16px;
-border-bottom: 1px solid var(â€“border);
+border-bottom: 1px solid #2a2a3a;
 }
 .brand-logo .eyebrow {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 9px;
 letter-spacing: 0.22em;
-color: var(â€“muted);
+color: #7a7a9a;
 text-transform: uppercase;
 margin-bottom: 4px;
 }
@@ -73,14 +73,14 @@ font-family: â€˜Syneâ€™, sans-serif;
 font-size: 18px;
 font-weight: 900;
 line-height: 1.1;
-background: linear-gradient(135deg, var(â€“st) 0%, #ffcc00 100%);
+background: linear-gradient(135deg, #ff9500 0%, #ffcc00 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
 }
 .brand-logo .sub {
 font-size: 11px;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-top: 2px;
 }
 
@@ -89,7 +89,7 @@ font-family: â€˜DM Monoâ€™, monospace;
 font-size: 9px;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(â€“dim);
+color: #44445a;
 padding: 14px 18px 5px;
 }
 .nav-item {
@@ -100,22 +100,22 @@ padding: 9px 18px;
 cursor: pointer;
 font-size: 13px;
 font-weight: 500;
-color: var(â€“muted);
+color: #7a7a9a;
 border-left: 3px solid transparent;
 transition: all 0.14s;
 user-select: none;
 }
-.nav-item:hover { background: var(â€“surface2); color: var(â€“text); }
-.nav-item.active { background: var(â€“surface2); color: var(â€“text); border-left-color: var(â€“accent-color, var(â€“st)); }
+.nav-item:hover { background: #1a1a24; color: #eeeaf8; }
+.nav-item.active { background: #1a1a24; color: #eeeaf8; border-left-color: var(â€“accent-color, #ff9500); }
 .nav-item .ni { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
 .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 .sidebar-footer {
 margin-top: auto;
 padding: 14px 18px;
-border-top: 1px solid var(â€“border);
+border-top: 1px solid #2a2a3a;
 font-size: 11px;
-color: var(â€“dim);
+color: #44445a;
 font-family: â€˜DM Monoâ€™, monospace;
 }
 
@@ -128,7 +128,7 @@ display: flex;
 flex-direction: column;
 }
 .main-wrap::-webkit-scrollbar { width: 4px; }
-.main-wrap::-webkit-scrollbar-thumb { background: var(â€“border2); border-radius: 2px; }
+.main-wrap::-webkit-scrollbar-thumb { background: #33334a; border-radius: 2px; }
 
 .main-content {
 padding: 28px 28px 60px;
@@ -152,15 +152,15 @@ line-height: 1.1;
 }
 .pg-sub {
 font-size: 12.5px;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-top: 3px;
 }
 .pg-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
 /* â€“ TOP BAR â€“ */
 .topbar {
-background: var(â€“surface);
-border-bottom: 1px solid var(â€“border);
+background: #12121a;
+border-bottom: 1px solid #2a2a3a;
 padding: 10px 28px;
 display: flex;
 align-items: center;
@@ -174,16 +174,16 @@ z-index: 50;
 .topbar-date {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 11px;
-color: var(â€“muted);
+color: #7a7a9a;
 }
 .today-badge {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 10px;
-background: var(â€“surface2);
-border: 1px solid var(â€“border2);
+background: #1a1a24;
+border: 1px solid #33334a;
 padding: 3px 10px;
 border-radius: 20px;
-color: var(â€“text);
+color: #eeeaf8;
 }
 
 /* â€“ KPI â€“ */
@@ -194,8 +194,8 @@ gap: 12px;
 margin-bottom: 20px;
 }
 .kpi-card {
-background: var(â€“surface);
-border: 1px solid var(â€“border);
+background: #12121a;
+border: 1px solid #2a2a3a;
 border-radius: 12px;
 padding: 16px 18px;
 position: relative;
@@ -215,16 +215,16 @@ border-radius: 1px;
 margin-bottom: 12px;
 background: var(â€“kc);
 }
-.kpi-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(â€“muted); margin-bottom: 6px; }
+.kpi-label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7a7a9a; margin-bottom: 6px; }
 .kpi-val {
 font-family: â€˜Syneâ€™, sans-serif;
 font-size: 20px;
 font-weight: 800;
 letter-spacing: -0.02em;
 }
-.kpi-note { font-size: 11px; color: var(â€“muted); margin-top: 4px; }
-.kpi-note.pos { color: var(â€“green); }
-.kpi-note.neg { color: var(â€“red); }
+.kpi-note { font-size: 11px; color: #7a7a9a; margin-top: 4px; }
+.kpi-note.pos { color: #2ecc71; }
+.kpi-note.neg { color: #ff4757; }
 
 /* â€“ GRID â€“ */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
@@ -233,8 +233,8 @@ letter-spacing: -0.02em;
 
 /* â€“ CARD â€“ */
 .card {
-background: var(â€“surface);
-border: 1px solid var(â€“border);
+background: #12121a;
+border: 1px solid #2a2a3a;
 border-radius: 12px;
 overflow: hidden;
 }
@@ -243,22 +243,22 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 padding: 14px 18px 12px;
-border-bottom: 1px solid var(â€“border);
+border-bottom: 1px solid #2a2a3a;
 }
 .card-title {
 font-family: â€˜Syneâ€™, sans-serif;
 font-size: 13.5px;
 font-weight: 700;
 }
-.card-body { padding: 14px 18px; }
+.card-body { background: #0a0a0f !important; color: #eeeaf8 !important; padding: 14px 18px; }
 .card-chip {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 9.5px;
 padding: 3px 8px;
 border-radius: 4px;
-background: var(â€“surface2);
-border: 1px solid var(â€“border2);
-color: var(â€“muted);
+background: #1a1a24;
+border: 1px solid #33334a;
+color: #7a7a9a;
 }
 
 /* â€“ TABLE â€“ */
@@ -268,9 +268,9 @@ font-family: â€˜DM Monoâ€™, monospace;
 font-size: 9.5px;
 letter-spacing: 0.12em;
 text-transform: uppercase;
-color: var(â€“muted);
+color: #7a7a9a;
 padding: 0 14px 8px;
-border-bottom: 1px solid var(â€“border);
+border-bottom: 1px solid #2a2a3a;
 text-align: left;
 font-weight: 400;
 }
@@ -298,17 +298,17 @@ font-weight: 600;
 transition: all 0.13s;
 white-space: nowrap;
 }
-.btn-primary { background: var(â€“st); color: #000; }
+.btn-primary { background: #ff9500; color: #000; }
 .btn-primary:hover { filter: brightness(1.1); }
-.btn-teal { background: var(â€“sc); color: #000; }
+.btn-teal { background: #00c9a7; color: #000; }
 .btn-teal:hover { filter: brightness(1.1); }
-.btn-pink { background: var(â€“mk); color: #fff; }
+.btn-pink { background: #ff4081; color: #fff; }
 .btn-pink:hover { filter: brightness(1.1); }
-.btn-ghost { background: var(â€“surface2); color: var(â€“text); border: 1px solid var(â€“border2); }
-.btn-ghost:hover { background: var(â€“surface3); }
-.btn-danger { background: rgba(255,71,87,0.12); color: var(â€“red); border: 1px solid rgba(255,71,87,0.2); }
+.btn-ghost { background: #1a1a24; color: #eeeaf8; border: 1px solid #33334a; }
+.btn-ghost:hover { background: #22222e; }
+.btn-danger { background: rgba(255,71,87,0.12); color: #ff4757; border: 1px solid rgba(255,71,87,0.2); }
 .btn-sm { padding: 5px 10px; font-size: 11px; border-radius: 6px; }
-.btn-green { background: rgba(46,204,113,0.12); color: var(â€“green); border: 1px solid rgba(46,204,113,0.2); }
+.btn-green { background: rgba(46,204,113,0.12); color: #2ecc71; border: 1px solid rgba(46,204,113,0.2); }
 
 /* â€“ FORMS â€“ */
 .form-label {
@@ -317,22 +317,22 @@ font-size: 10.5px;
 font-weight: 700;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-bottom: 5px;
 }
 .form-control {
 width: 100%;
-background: var(â€“surface2);
-border: 1.5px solid var(â€“border);
+background: #1a1a24;
+border: 1.5px solid #2a2a3a;
 border-radius: 8px;
 padding: 8px 12px;
-color: var(â€“text);
+color: #eeeaf8;
 font-family: â€˜Plus Jakarta Sansâ€™, sans-serif;
 font-size: 13px;
 outline: none;
 transition: border 0.14s;
 }
-.form-control:focus { border-color: var(â€“st); }
+.form-control:focus { border-color: #ff9500; }
 .form-group { margin-bottom: 12px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 select.form-control { appearance: none; cursor: pointer; }
@@ -349,8 +349,8 @@ padding: 20px;
 }
 .modal-overlay.open { display: flex; }
 .modal {
-background: var(â€“surface);
-border: 1px solid var(â€“border2);
+background: #12121a;
+border: 1px solid #33334a;
 border-radius: 16px;
 padding: 24px;
 width: 520px;
@@ -373,14 +373,14 @@ font-weight: 800;
 .modal-close {
 width: 28px; height: 28px;
 border-radius: 6px;
-background: var(â€“surface2);
+background: #1a1a24;
 border: none; cursor: pointer;
-color: var(â€“muted);
+color: #7a7a9a;
 font-size: 16px;
 display: flex; align-items: center; justify-content: center;
 transition: color 0.12s;
 }
-.modal-close:hover { color: var(â€“text); }
+.modal-close:hover { color: #eeeaf8; }
 
 /* â€“ PAGES â€“ */
 .page { display: none; }
@@ -395,17 +395,17 @@ gap: 14px;
 height: calc(100vh - 130px);
 }
 .pos-products {
-background: var(â€“surface);
-border: 1px solid var(â€“border);
+background: #12121a;
+border: 1px solid #2a2a3a;
 border-radius: 12px;
 overflow-y: auto;
 padding: 16px;
 }
 .pos-products::-webkit-scrollbar { width: 3px; }
-.pos-products::-webkit-scrollbar-thumb { background: var(â€“border2); }
+.pos-products::-webkit-scrollbar-thumb { background: #33334a; }
 .pos-cart {
-background: var(â€“surface);
-border: 1px solid var(â€“border);
+background: #12121a;
+border: 1px solid #2a2a3a;
 border-radius: 12px;
 display: flex;
 flex-direction: column;
@@ -417,7 +417,7 @@ font-family: â€˜DM Monoâ€™, monospace;
 font-size: 10px;
 letter-spacing: 0.18em;
 text-transform: uppercase;
-color: var(â€“muted);
+color: #7a7a9a;
 margin: 10px 0 8px;
 }
 .product-section-title:first-child { margin-top: 0; }
@@ -428,8 +428,8 @@ gap: 8px;
 margin-bottom: 12px;
 }
 .product-btn {
-background: var(â€“surface2);
-border: 1.5px solid var(â€“border);
+background: #1a1a24;
+border: 1.5px solid #2a2a3a;
 border-radius: 10px;
 padding: 12px 10px;
 cursor: pointer;
@@ -438,32 +438,32 @@ text-align: left;
 position: relative;
 overflow: hidden;
 }
-.product-btn:hover { border-color: var(â€“pb-color, var(â€“st)); background: var(â€“surface3); }
+.product-btn:hover { border-color: var(â€“pb-color, #ff9500); background: #22222e; }
 .product-btn::before {
 content: â€˜â€™;
 position: absolute;
 top: 0; left: 0; right: 0;
 height: 3px;
-background: var(â€“pb-color, var(â€“st));
+background: var(â€“pb-color, #ff9500);
 opacity: 0.6;
 }
 .pb-name {
 font-size: 12px;
 font-weight: 600;
-color: var(â€“text);
+color: #eeeaf8;
 margin-bottom: 4px;
 line-height: 1.3;
 }
 .pb-price {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 12px;
-color: var(â€“pb-color, var(â€“st));
+color: var(â€“pb-color, #ff9500);
 font-weight: 500;
 }
 .pb-barcode {
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 9px;
-color: var(â€“dim);
+color: #44445a;
 margin-top: 3px;
 }
 
@@ -474,17 +474,17 @@ margin-bottom: 12px;
 }
 .barcode-field {
 width: 100%;
-background: var(â€“surface2);
-border: 2px solid var(â€“border2);
+background: #1a1a24;
+border: 2px solid #33334a;
 border-radius: 8px;
 padding: 10px 14px 10px 38px;
-color: var(â€“text);
+color: #eeeaf8;
 font-family: â€˜DM Monoâ€™, monospace;
 font-size: 13px;
 outline: none;
 transition: border 0.14s;
 }
-.barcode-field:focus { border-color: var(â€“st); }
+.barcode-field:focus { border-color: #ff9500; }
 .barcode-icon {
 position: absolute;
 left: 12px;
@@ -502,22 +502,22 @@ flex-wrap: wrap;
 .outlet-btn {
 padding: 5px 12px;
 border-radius: 6px;
-border: 1.5px solid var(â€“border);
-background: var(â€“surface2);
+border: 1.5px solid #2a2a3a;
+background: #1a1a24;
 font-size: 11px;
 font-weight: 600;
-color: var(â€“muted);
+color: #7a7a9a;
 cursor: pointer;
 transition: all 0.12s;
 }
-.outlet-btn.active { border-color: var(â€“st); color: var(â€“st); background: rgba(255,149,0,0.08); }
+.outlet-btn.active { border-color: #ff9500; color: #ff9500; background: rgba(255,149,0,0.08); }
 
 /* CART */
-.cart-header { padding: 14px 16px; border-bottom: 1px solid var(â€“border); }
+.cart-header { padding: 14px 16px; border-bottom: 1px solid #2a2a3a; }
 .cart-title { font-family: â€˜Syneâ€™, sans-serif; font-size: 14px; font-weight: 700; }
 .cart-brand {
 font-size: 11px;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-top: 2px;
 }
 .cart-items {
@@ -534,9 +534,9 @@ padding: 8px 8px;
 border-radius: 8px;
 transition: background 0.1s;
 }
-.cart-item:hover { background: var(â€“surface2); }
+.cart-item:hover { background: #1a1a24; }
 .ci-name { flex: 1; font-size: 12.5px; font-weight: 500; }
-.ci-price { font-family: â€˜DM Monoâ€™, monospace; font-size: 12px; color: var(â€“muted); }
+.ci-price { font-family: â€˜DM Monoâ€™, monospace; font-size: 12px; color: #7a7a9a; }
 .ci-qty-wrap {
 display: flex;
 align-items: center;
@@ -545,23 +545,23 @@ gap: 4px;
 .ci-qty-btn {
 width: 22px; height: 22px;
 border-radius: 4px;
-border: 1px solid var(â€“border2);
-background: var(â€“surface2);
-color: var(â€“text);
+border: 1px solid #33334a;
+background: #1a1a24;
+color: #eeeaf8;
 cursor: pointer;
 font-size: 14px;
 display: flex; align-items: center; justify-content: center;
 transition: background 0.1s;
 }
-.ci-qty-btn:hover { background: var(â€“surface3); }
+.ci-qty-btn:hover { background: #22222e; }
 .ci-qty { font-family: â€˜DM Monoâ€™, monospace; font-size: 13px; min-width: 22px; text-align: center; }
 
-.cart-footer { padding: 12px 16px; border-top: 1px solid var(â€“border); }
+.cart-footer { padding: 12px 16px; border-top: 1px solid #2a2a3a; }
 .cart-subtotal {
 display: flex;
 justify-content: space-between;
 font-size: 12.5px;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-bottom: 6px;
 }
 .cart-total {
@@ -579,14 +579,14 @@ font-weight: 700;
 font-family: â€˜Syneâ€™, sans-serif;
 font-size: 20px;
 font-weight: 900;
-color: var(â€“st);
+color: #ff9500;
 }
 .btn-bayar {
 width: 100%;
 padding: 13px;
 border-radius: 10px;
 border: none;
-background: linear-gradient(135deg, var(â€“st) 0%, #ffcc00 100%);
+background: linear-gradient(135deg, #ff9500 0%, #ffcc00 100%);
 color: #000;
 font-family: â€˜Syneâ€™, sans-serif;
 font-size: 15px;
@@ -600,8 +600,8 @@ letter-spacing: -0.01em;
 
 /* â€“ REPORT CARDS â€“ */
 .report-brand-card {
-background: var(â€“surface);
-border: 1px solid var(â€“border);
+background: #12121a;
+border: 1px solid #2a2a3a;
 border-radius: 12px;
 overflow: hidden;
 }
@@ -610,11 +610,11 @@ padding: 14px 18px;
 display: flex;
 align-items: center;
 gap: 10px;
-border-bottom: 1px solid var(â€“border);
+border-bottom: 1px solid #2a2a3a;
 }
 .rbc-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .rbc-name { font-family: â€˜Syneâ€™, sans-serif; font-size: 14px; font-weight: 700; }
-.rbc-body { padding: 14px 18px; }
+.rbc-body { background: #0a0a0f !important; color: #eeeaf8 !important; padding: 14px 18px; }
 .rbc-stat {
 display: flex;
 justify-content: space-between;
@@ -623,12 +623,12 @@ padding: 5px 0;
 border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 .rbc-stat:last-child { border-bottom: none; }
-.rbc-stat-label { color: var(â€“muted); }
+.rbc-stat-label { color: #7a7a9a; }
 .rbc-stat-val { font-family: â€˜DM Monoâ€™, monospace; font-weight: 500; }
 
 /* â€“ AMOUNT COLORS â€“ */
-.apos { color: var(â€“green); font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
-.aneg { color: var(â€“red); font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
+.apos { color: #2ecc71; font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
+.aneg { color: #ff4757; font-family: â€˜DM Monoâ€™, monospace; font-weight: 600; }
 .anum { font-family: â€˜DM Monoâ€™, monospace; }
 
 /* â€“ BADGES â€“ */
@@ -640,12 +640,12 @@ padding: 2px 8px;
 border-radius: 20px;
 letter-spacing: 0.04em;
 }
-.badge-st { background: rgba(255,149,0,0.12); color: var(â€“st); }
-.badge-sc { background: rgba(0,201,167,0.12); color: var(â€“sc); }
-.badge-mk { background: rgba(255,64,129,0.12); color: var(â€“mk); }
-.badge-pos { background: rgba(46,204,113,0.12); color: var(â€“green); }
-.badge-neg { background: rgba(255,71,87,0.12); color: var(â€“red); }
-.badge-out { background: rgba(61,156,255,0.12); color: var(â€“blue); font-size: 9.5px; }
+.badge-st { background: rgba(255,149,0,0.12); color: #ff9500; }
+.badge-sc { background: rgba(0,201,167,0.12); color: #00c9a7; }
+.badge-mk { background: rgba(255,64,129,0.12); color: #ff4081; }
+.badge-pos { background: rgba(46,204,113,0.12); color: #2ecc71; }
+.badge-neg { background: rgba(255,71,87,0.12); color: #ff4757; }
+.badge-out { background: rgba(61,156,255,0.12); color: #3d9cff; font-size: 9.5px; }
 
 /* â€“ SUCCESS OVERLAY â€“ */
 .success-overlay {
@@ -658,17 +658,17 @@ justify-content: center;
 }
 .success-overlay.open { display: flex; }
 .success-box {
-background: var(â€“surface);
-border: 2px solid var(â€“green);
+background: #12121a;
+border: 2px solid #2ecc71;
 border-radius: 20px;
 padding: 36px 40px;
 text-align: center;
 max-width: 340px;
 }
 .success-icon { font-size: 48px; margin-bottom: 12px; }
-.success-title { font-family: â€˜Syneâ€™, sans-serif; font-size: 22px; font-weight: 900; color: var(â€“green); margin-bottom: 6px; }
-.success-amount { font-family: â€˜Syneâ€™, sans-serif; font-size: 30px; font-weight: 900; color: var(â€“text); margin-bottom: 4px; }
-.success-sub { font-size: 13px; color: var(â€“muted); margin-bottom: 20px; }
+.success-title { font-family: â€˜Syneâ€™, sans-serif; font-size: 22px; font-weight: 900; color: #2ecc71; margin-bottom: 6px; }
+.success-amount { font-family: â€˜Syneâ€™, sans-serif; font-size: 30px; font-weight: 900; color: #eeeaf8; margin-bottom: 4px; }
+.success-sub { font-size: 13px; color: #7a7a9a; margin-bottom: 20px; }
 
 /* â€“ PAYMENT METHOD â€“ */
 .payment-method-wrap {
@@ -679,7 +679,7 @@ font-size: 10px;
 font-weight: 700;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-color: var(â€“muted);
+color: #7a7a9a;
 margin-bottom: 6px;
 }
 .pay-btns {
@@ -690,19 +690,19 @@ gap: 6px;
 .pay-btn {
 padding: 8px;
 border-radius: 8px;
-border: 1.5px solid var(â€“border2);
-background: var(â€“surface2);
+border: 1.5px solid #33334a;
+background: #1a1a24;
 font-size: 12px;
 font-weight: 600;
-color: var(â€“muted);
+color: #7a7a9a;
 cursor: pointer;
 text-align: center;
 transition: all 0.13s;
 user-select: none;
 }
-.pay-btn:hover { border-color: var(â€“text); color: var(â€“text); }
-.pay-btn.active { border-color: var(â€“green); color: var(â€“green); background: rgba(46,204,113,0.08); }
-.pay-btn.active-qris { border-color: var(â€“blue); color: var(â€“blue); background: rgba(61,156,255,0.08); }
+.pay-btn:hover { border-color: #eeeaf8; color: #eeeaf8; }
+.pay-btn.active { border-color: #2ecc71; color: #2ecc71; background: rgba(46,204,113,0.08); }
+.pay-btn.active-qris { border-color: #3d9cff; color: #3d9cff; background: rgba(61,156,255,0.08); }
 
 /* â€“ NOTA PRINT â€“ */
 .nota-modal {
@@ -781,7 +781,7 @@ box-shadow: none;
 /* scrollbar global */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(â€“border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #33334a; border-radius: 2px; }
 </style>
 
 <!-- SUPABASE SDK -->
@@ -841,26 +841,26 @@ box-shadow: none;
   </div>
 
   <div class="nav-group-label">Brand di bawah Grup</div>
-  <div class="nav-item active" style="--accent-color:var(--st)" onclick="showPage('pos-st',this)">
-    <span class="ni">&#x1F360;</span> Sam Tahes <span style="margin-left:auto;font-size:10px;color:var(--dim)">4 outlet</span>
+  <div class="nav-item active" style="--accent-color:#ff9500" onclick="showPage('pos-st',this)">
+    <span class="ni">&#x1F360;</span> Sam Tahes <span style="margin-left:auto;font-size:10px;color:#44445a">4 outlet</span>
   </div>
-  <div class="nav-item" style="--accent-color:var(--sc)" onclick="showPage('pos-sc',this)">
-    <span class="ni">&#x1F95F;</span> Siomay Cihampelas <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+  <div class="nav-item" style="--accent-color:#00c9a7" onclick="showPage('pos-sc',this)">
+    <span class="ni">&#x1F95F;</span> Siomay Cihampelas <span style="margin-left:auto;font-size:10px;color:#44445a">1</span>
   </div>
-  <div class="nav-item" style="--accent-color:var(--mk)" onclick="showPage('pos-mk',this)">
-    <span class="ni">&#x1F354;</span> Meg's Kitchen <span style="margin-left:auto;font-size:10px;color:var(--dim)">1</span>
+  <div class="nav-item" style="--accent-color:#ff4081" onclick="showPage('pos-mk',this)">
+    <span class="ni">&#x1F354;</span> Meg's Kitchen <span style="margin-left:auto;font-size:10px;color:#44445a">1</span>
   </div>
 
   <div class="nav-group-label">Laporan</div>
-  <div class="nav-item" style="--accent-color:var(--yellow)" onclick="showPage('report-today',this)">
+  <div class="nav-item" style="--accent-color:#ffd32a" onclick="showPage('report-today',this)">
     <span class="ni">&#x1F4CB;</span> Laporan Hari Ini
   </div>
-  <div class="nav-item" style="--accent-color:var(--blue)" onclick="showPage('report-all',this)">
+  <div class="nav-item" style="--accent-color:#3d9cff" onclick="showPage('report-all',this)">
     <span class="ni">&#x1F4CA;</span> Rekap Keuangan
   </div>
 
   <div class="nav-group-label">Pengeluaran</div>
-  <div class="nav-item" style="--accent-color:var(--red)" onclick="showPage('pengeluaran',this)">
+  <div class="nav-item" style="--accent-color:#ff4757" onclick="showPage('pengeluaran',this)">
     <span class="ni">&#x1F4B8;</span> Catat Pengeluaran
   </div>
 
@@ -887,7 +887,7 @@ box-shadow: none;
 <div class="page active" id="page-pos-st">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--st)">&#x1F360; Sam Tahes</div>
+      <div class="pg-title" style="color:#ff9500">&#x1F360; Sam Tahes</div>
       <div class="pg-sub">Kukusan & rebusan &middot; 4 Outlet &middot; Buka 06.00&ndash;09.00</div>
     </div>
   </div>
@@ -906,12 +906,12 @@ box-shadow: none;
       </div>
       <div class="product-section-title">&#x1F4E6; Paket (Barcode)</div>
       <div class="product-grid">
-        <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PK',name:'Paket Kecil',sub:'Thinwall 1000ml',price:12000,barcode:'ST-PK'})">
+        <div class="product-btn" style="--pb-color:#ff9500" onclick="addToCart('st',{id:'ST-PK',name:'Paket Kecil',sub:'Thinwall 1000ml',price:12000,barcode:'ST-PK'})">
           <div class="pb-name">Paket Kecil</div>
           <div class="pb-price">Rp 12.000</div>
           <div class="pb-barcode">&#x1F4F7; ST-PK &middot; 1000ml</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--st)" onclick="addToCart('st',{id:'ST-PB',name:'Paket Besar',sub:'Thinwall 2000ml',price:24000,barcode:'ST-PB'})">
+        <div class="product-btn" style="--pb-color:#ff9500" onclick="addToCart('st',{id:'ST-PB',name:'Paket Besar',sub:'Thinwall 2000ml',price:24000,barcode:'ST-PB'})">
           <div class="pb-name">Paket Besar</div>
           <div class="pb-price">Rp 24.000</div>
           <div class="pb-barcode">&#x1F4F7; ST-PB &middot; 2000ml</div>
@@ -932,8 +932,8 @@ box-shadow: none;
           <div class="pb-price">Rp 4.000</div>
         </div>
       </div>
-      <div style="margin-top:14px;padding:10px 14px;background:var(--surface2);border-radius:8px;font-size:11.5px;color:var(--muted)">
-        &#x1F4A1; <b>Cara scan barcode:</b> fokus ke kolom barcode di atas lalu tembak barcode scanner ke kode <code style="color:var(--st)">ST-PK</code> (Paket Kecil) atau <code style="color:var(--st)">ST-PB</code> (Paket Besar). Produk otomatis masuk keranjang.
+      <div style="margin-top:14px;padding:10px 14px;background:#1a1a24;border-radius:8px;font-size:11.5px;color:#7a7a9a">
+        &#x1F4A1; <b>Cara scan barcode:</b> fokus ke kolom barcode di atas lalu tembak barcode scanner ke kode <code style="color:#ff9500">ST-PK</code> (Paket Kecil) atau <code style="color:#ff9500">ST-PB</code> (Paket Besar). Produk otomatis masuk keranjang.
       </div>
     </div>
     <!-- CART -->
@@ -943,7 +943,7 @@ box-shadow: none;
         <div class="cart-brand"><span class="badge badge-st">SAM TAHES</span> &middot; <span id="st-outlet-label">Outlet 1</span></div>
       </div>
       <div class="cart-items" id="st-cart-items">
-        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+        <div style="padding:24px;text-align:center;color:#44445a;font-size:13px">Belum ada item</div>
       </div>
       <div class="cart-footer">
         <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="st-subtotal">Rp 0</span></div>
@@ -969,7 +969,7 @@ box-shadow: none;
 <div class="page" id="page-pos-sc">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--sc)">&#x1F95F; Siomay Cihampelas</div>
+      <div class="pg-title" style="color:#00c9a7">&#x1F95F; Siomay Cihampelas</div>
       <div class="pg-sub">Siomay &middot; Paket & eceran &middot; 1 Outlet</div>
     </div>
   </div>
@@ -981,7 +981,7 @@ box-shadow: none;
       </div>
       <div class="product-section-title">&#x1F4E6; Paket (Barcode)</div>
       <div class="product-grid">
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-PAK',name:'Paket Siomay',sub:'Siomay+Tahu+Kentang+Pare+Kobis+Telur&frac12;',price:15000,barcode:'SC-PAK'})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-PAK',name:'Paket Siomay',sub:'Siomay+Tahu+Kentang+Pare+Kobis+Telur&frac12;',price:15000,barcode:'SC-PAK'})">
           <div class="pb-name">Paket Komplit</div>
           <div class="pb-price">Rp 15.000</div>
           <div class="pb-barcode">&#x1F4F7; SC-PAK</div>
@@ -989,27 +989,27 @@ box-shadow: none;
       </div>
       <div class="product-section-title">&#x1F3F7; Eceran</div>
       <div class="product-grid">
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-SY',name:'Siomay',price:3000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-SY',name:'Siomay',price:3000})">
           <div class="pb-name">Siomay</div>
           <div class="pb-price">Rp 3.000 /pcs</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-TH',name:'Tahu',price:3000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-TH',name:'Tahu',price:3000})">
           <div class="pb-name">Tahu</div>
           <div class="pb-price">Rp 3.000 /pcs</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-KT',name:'Kentang',price:2000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-KT',name:'Kentang',price:2000})">
           <div class="pb-name">Kentang</div>
           <div class="pb-price">Rp 2.000 /pcs</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-KB',name:'Kobis/Kol',price:2000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-KB',name:'Kobis/Kol',price:2000})">
           <div class="pb-name">Kobis/Kol</div>
           <div class="pb-price">Rp 2.000 /pcs</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-PR',name:'Pare',price:3000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-PR',name:'Pare',price:3000})">
           <div class="pb-name">Pare</div>
           <div class="pb-price">Rp 3.000 /pcs</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--sc)" onclick="addToCart('sc',{id:'SC-TL',name:'Telur Setengah',price:3000})">
+        <div class="product-btn" style="--pb-color:#00c9a7" onclick="addToCart('sc',{id:'SC-TL',name:'Telur Setengah',price:3000})">
           <div class="pb-name">Telur Setengah</div>
           <div class="pb-price">Rp 3.000 /pcs</div>
         </div>
@@ -1018,16 +1018,16 @@ box-shadow: none;
     <div class="pos-cart">
       <div class="cart-header">
         <div class="cart-title">&#x1F6D2; Keranjang</div>
-        <div class="cart-brand"><span class="badge badge-sc">SIOMAY CIHAMPELAS</span> &middot; <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
+        <div class="cart-brand"><span class="badge badge-sc">SIOMAY CIHAMPELAS</span> &middot; <span style="font-size:11px;color:#7a7a9a">1 Outlet</span></div>
       </div>
       <div class="cart-items" id="sc-cart-items">
-        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+        <div style="padding:24px;text-align:center;color:#44445a;font-size:13px">Belum ada item</div>
       </div>
       <div class="cart-footer">
         <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="sc-subtotal">Rp 0</span></div>
         <div class="cart-total">
           <span class="cart-total-label">TOTAL</span>
-          <span class="cart-total-val" style="color:var(--sc)" id="sc-total">Rp 0</span>
+          <span class="cart-total-val" style="color:#00c9a7" id="sc-total">Rp 0</span>
         </div>
         <div class="payment-method-wrap">
           <div class="pay-label">Metode Bayar</div>
@@ -1036,7 +1036,7 @@ box-shadow: none;
             <div class="pay-btn" id="sc-pay-qris" onclick="setPayMethod('sc','qris')">&#x1F4F1; QRIS BCA</div>
           </div>
         </div>
-        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--sc),#00e5c4)" onclick="bayar('sc')">&#x2713; BAYAR &amp; SIMPAN</button>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,#00c9a7,#00e5c4)" onclick="bayar('sc')">&#x2713; BAYAR &amp; SIMPAN</button>
         <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('sc')">&#x1F5D1; Kosongkan</button>
       </div>
     </div>
@@ -1047,7 +1047,7 @@ box-shadow: none;
 <div class="page" id="page-pos-mk">
   <div class="pg-header">
     <div>
-      <div class="pg-title" style="color:var(--mk)">&#x1F354; Meg's Kitchen</div>
+      <div class="pg-title" style="color:#ff4081">&#x1F354; Meg's Kitchen</div>
       <div class="pg-sub">Street food &middot; Penjualan satuan &middot; 1 Outlet</div>
     </div>
   </div>
@@ -1055,27 +1055,27 @@ box-shadow: none;
     <div class="pos-products">
       <div class="product-section-title">&#x1F354; Menu</div>
       <div class="product-grid">
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-BG',name:'Burger',price:15000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-BG',name:'Burger',price:15000})">
           <div class="pb-name">Burger</div>
           <div class="pb-price">Rp 15.000</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-KG',name:'Kentang Goreng',price:7000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-KG',name:'Kentang Goreng',price:7000})">
           <div class="pb-name">Kentang Goreng</div>
           <div class="pb-price">Rp 7.000</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-TK',name:'Takoyaki',price:10000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-TK',name:'Takoyaki',price:10000})">
           <div class="pb-name">Takoyaki</div>
           <div class="pb-price">Rp 10.000 /porsi</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-YK',name:'Yakitori',price:10000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-YK',name:'Yakitori',price:10000})">
           <div class="pb-name">Yakitori</div>
           <div class="pb-price">Rp 10.000 /porsi</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-NS',name:'Nasi Putih',price:5000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-NS',name:'Nasi Putih',price:5000})">
           <div class="pb-name">Nasi Putih</div>
           <div class="pb-price">Rp 5.000</div>
         </div>
-        <div class="product-btn" style="--pb-color:var(--mk)" onclick="addToCart('mk',{id:'MK-AY',name:'Ayam Goreng',price:8000})">
+        <div class="product-btn" style="--pb-color:#ff4081" onclick="addToCart('mk',{id:'MK-AY',name:'Ayam Goreng',price:8000})">
           <div class="pb-name">Ayam Goreng</div>
           <div class="pb-price">Rp 8.000 /all varian</div>
         </div>
@@ -1084,16 +1084,16 @@ box-shadow: none;
     <div class="pos-cart">
       <div class="cart-header">
         <div class="cart-title">&#x1F6D2; Keranjang</div>
-        <div class="cart-brand"><span class="badge badge-mk">MEG'S KITCHEN</span> &middot; <span style="font-size:11px;color:var(--muted)">1 Outlet</span></div>
+        <div class="cart-brand"><span class="badge badge-mk">MEG'S KITCHEN</span> &middot; <span style="font-size:11px;color:#7a7a9a">1 Outlet</span></div>
       </div>
       <div class="cart-items" id="mk-cart-items">
-        <div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>
+        <div style="padding:24px;text-align:center;color:#44445a;font-size:13px">Belum ada item</div>
       </div>
       <div class="cart-footer">
         <div class="cart-subtotal"><span>Subtotal</span><span class="anum" id="mk-subtotal">Rp 0</span></div>
         <div class="cart-total">
           <span class="cart-total-label">TOTAL</span>
-          <span class="cart-total-val" style="color:var(--mk)" id="mk-total">Rp 0</span>
+          <span class="cart-total-val" style="color:#ff4081" id="mk-total">Rp 0</span>
         </div>
         <div class="payment-method-wrap">
           <div class="pay-label">Metode Bayar</div>
@@ -1102,7 +1102,7 @@ box-shadow: none;
             <div class="pay-btn" id="mk-pay-qris" onclick="setPayMethod('mk','qris')">&#x1F4F1; QRIS BCA</div>
           </div>
         </div>
-        <button class="btn-bayar" style="background:linear-gradient(135deg,var(--mk),#ff6eb4)" onclick="bayar('mk')">&#x2713; BAYAR &amp; SIMPAN</button>
+        <button class="btn-bayar" style="background:linear-gradient(135deg,#ff4081,#ff6eb4)" onclick="bayar('mk')">&#x2713; BAYAR &amp; SIMPAN</button>
         <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" onclick="clearCart('mk')">&#x1F5D1; Kosongkan</button>
       </div>
     </div>
@@ -1123,24 +1123,24 @@ box-shadow: none;
 
   <!-- KPI Today -->
   <div class="kpi-grid" id="today-kpi-grid">
-    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet Hari Ini</div><div class="kpi-val" id="today-omzet">Rp 0</div><div class="kpi-note" id="today-tx-count">0 transaksi</div></div>
-    <div class="kpi-card" style="--kc:var(--st)"><div class="kpi-accent"></div><div class="kpi-label">Sam Tahes</div><div class="kpi-val" id="today-st">Rp 0</div><div class="kpi-note" id="today-st-n">0 transaksi</div></div>
-    <div class="kpi-card" style="--kc:var(--sc)"><div class="kpi-accent"></div><div class="kpi-label">Siomay Cihampelas</div><div class="kpi-val" id="today-sc">Rp 0</div><div class="kpi-note" id="today-sc-n">0 transaksi</div></div>
-    <div class="kpi-card" style="--kc:var(--mk)"><div class="kpi-accent"></div><div class="kpi-label">Meg's Kitchen</div><div class="kpi-val" id="today-mk">Rp 0</div><div class="kpi-note" id="today-mk-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:#2ecc71"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet Hari Ini</div><div class="kpi-val" id="today-omzet">Rp 0</div><div class="kpi-note" id="today-tx-count">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:#ff9500"><div class="kpi-accent"></div><div class="kpi-label">Sam Tahes</div><div class="kpi-val" id="today-st">Rp 0</div><div class="kpi-note" id="today-st-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:#00c9a7"><div class="kpi-accent"></div><div class="kpi-label">Siomay Cihampelas</div><div class="kpi-val" id="today-sc">Rp 0</div><div class="kpi-note" id="today-sc-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:#ff4081"><div class="kpi-accent"></div><div class="kpi-label">Meg's Kitchen</div><div class="kpi-val" id="today-mk">Rp 0</div><div class="kpi-note" id="today-mk-n">0 transaksi</div></div>
   </div>
   <!-- Payment method KPIs -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
-    <div class="kpi-card" style="--kc:var(--green)">
+    <div class="kpi-card" style="--kc:#2ecc71">
       <div class="kpi-accent"></div>
       <div class="kpi-label">&#x1F4B5; Dana Tunai Hari Ini</div>
       <div class="kpi-val" id="today-tunai">Rp 0</div>
       <div class="kpi-note" id="today-tunai-n">0 transaksi</div>
     </div>
-    <div class="kpi-card" style="--kc:var(--blue)">
+    <div class="kpi-card" style="--kc:#3d9cff">
       <div class="kpi-accent"></div>
       <div class="kpi-label">&#x1F4F1; Dana QRIS BCA Hari Ini</div>
       <div class="kpi-val" id="today-qris">Rp 0</div>
-      <div class="kpi-note" id="today-qris-n" style="color:var(--blue)">0 transaksi &middot; cek mutasi BCA</div>
+      <div class="kpi-note" id="today-qris-n" style="color:#3d9cff">0 transaksi &middot; cek mutasi BCA</div>
     </div>
   </div>
 
@@ -1177,14 +1177,14 @@ box-shadow: none;
   </div>
 
   <div class="kpi-grid">
-    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet</div><div class="kpi-val" id="all-omzet">Rp 0</div><div class="kpi-note">semua brand</div></div>
-    <div class="kpi-card" style="--kc:var(--red)"><div class="kpi-accent"></div><div class="kpi-label">Total Pengeluaran</div><div class="kpi-val" id="all-keluar">Rp 0</div><div class="kpi-note">semua brand</div></div>
-    <div class="kpi-card" style="--kc:var(--yellow)"><div class="kpi-accent"></div><div class="kpi-label">Laba Bersih</div><div class="kpi-val" id="all-laba">Rp 0</div><div class="kpi-note pos" id="all-margin">margin 0%</div></div>
-    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">Total Transaksi</div><div class="kpi-val" id="all-txcount">0</div><div class="kpi-note">semua waktu</div></div>
+    <div class="kpi-card" style="--kc:#2ecc71"><div class="kpi-accent"></div><div class="kpi-label">Total Omzet</div><div class="kpi-val" id="all-omzet">Rp 0</div><div class="kpi-note">semua brand</div></div>
+    <div class="kpi-card" style="--kc:#ff4757"><div class="kpi-accent"></div><div class="kpi-label">Total Pengeluaran</div><div class="kpi-val" id="all-keluar">Rp 0</div><div class="kpi-note">semua brand</div></div>
+    <div class="kpi-card" style="--kc:#ffd32a"><div class="kpi-accent"></div><div class="kpi-label">Laba Bersih</div><div class="kpi-val" id="all-laba">Rp 0</div><div class="kpi-note pos" id="all-margin">margin 0%</div></div>
+    <div class="kpi-card" style="--kc:#3d9cff"><div class="kpi-accent"></div><div class="kpi-label">Total Transaksi</div><div class="kpi-val" id="all-txcount">0</div><div class="kpi-note">semua waktu</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
-    <div class="kpi-card" style="--kc:var(--green)"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4B5; Total Dana Tunai</div><div class="kpi-val" id="all-tunai">Rp 0</div><div class="kpi-note" id="all-tunai-n">0 transaksi</div></div>
-    <div class="kpi-card" style="--kc:var(--blue)"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4F1; Total Dana QRIS BCA</div><div class="kpi-val" id="all-qris">Rp 0</div><div class="kpi-note" id="all-qris-n" style="color:var(--blue)">0 transaksi &middot; crosscheck mutasi BCA</div></div>
+    <div class="kpi-card" style="--kc:#2ecc71"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4B5; Total Dana Tunai</div><div class="kpi-val" id="all-tunai">Rp 0</div><div class="kpi-note" id="all-tunai-n">0 transaksi</div></div>
+    <div class="kpi-card" style="--kc:#3d9cff"><div class="kpi-accent"></div><div class="kpi-label">&#x1F4F1; Total Dana QRIS BCA</div><div class="kpi-val" id="all-qris">Rp 0</div><div class="kpi-note" id="all-qris-n" style="color:#3d9cff">0 transaksi &middot; crosscheck mutasi BCA</div></div>
   </div>
 
   <!-- Laba Rugi per brand -->
@@ -1390,7 +1390,7 @@ function doLogin() {
 // STATE
 // ===============================================
 const BRAND_NAMES = { st:'Sam Tahes', sc:'Siomay Cihampelas', mk:"Meg's Kitchen", grup:'Sam Tahes Grup' };
-const BRAND_COLORS = { st:'var(--st)', sc:'var(--sc)', mk:'var(--mk)' };
+const BRAND_COLORS = { st:'#ff9500', sc:'#00c9a7', mk:'#ff4081' };
 const OUTLET_NAMES = ['Outlet 1 &middot; Toko Roti Gaya Baru','Outlet 2 &middot; Depan Noodle Inc','Outlet 3 &middot; Jl. Kakap 88','Outlet 4 &middot; Jl. Veteran'];
 
 let carts = { st:[], sc:[], mk:[] };
@@ -1604,10 +1604,10 @@ function handleBarcode(e, brand) {
   const found = BARCODES[val];
   if (found && found.brand === brand) {
     addToCart(brand, found.item);
-    e.target.style.borderColor = 'var(--green)';
+    e.target.style.borderColor = '#2ecc71';
     setTimeout(()=>{ e.target.style.borderColor=''; }, 600);
   } else {
-    e.target.style.borderColor = 'var(--red)';
+    e.target.style.borderColor = '#ff4757';
     setTimeout(()=>{ e.target.style.borderColor=''; }, 800);
   }
   e.target.value = '';
@@ -1643,7 +1643,7 @@ function renderCart(brand) {
   const items = carts[brand];
   const wrap = document.getElementById(brand + '-cart-items');
   if (!items.length) {
-    wrap.innerHTML = '<div style="padding:24px;text-align:center;color:var(--dim);font-size:13px">Belum ada item</div>';
+    wrap.innerHTML = '<div style="padding:24px;text-align:center;color:#44445a;font-size:13px">Belum ada item</div>';
   } else {
     wrap.innerHTML = items.map(i => `
       <div class="cart-item">
@@ -1706,7 +1706,7 @@ async function bayar(brand) {
   const isQris = method === 'qris';
   document.getElementById('success-icon').textContent = isQris ? '&#x1F4F1;' : '&#x2705;';
   document.getElementById('success-title').textContent = isQris ? 'QRIS DITERIMA!' : 'TERBAYAR!';
-  document.getElementById('success-title').style.color = isQris ? 'var(--blue)' : 'var(--green)';
+  document.getElementById('success-title').style.color = isQris ? '#3d9cff' : '#2ecc71';
   document.getElementById('success-amount').textContent = rp(total);
   const itemsSummary = tx.items.map(i=>`${i.qty}&times; ${i.name}`).join(', ');
   document.getElementById('success-sub').textContent = `${BRAND_NAMES[brand]} &middot; ${itemsSummary}`;
@@ -1822,11 +1822,11 @@ function renderPengeluaran() {
   const t = document.getElementById('pgl-tbody');
   t.innerHTML = recent.length ? recent.map(p=>`
     <tr>
-      <td style="color:var(--muted);font-size:11px">${fmtTgl(p.tanggal)}</td>
+      <td style="color:#7a7a9a;font-size:11px">${fmtTgl(p.tanggal)}</td>
       <td><span class="badge badge-${p.brand==='grup'?'st':p.brand}">${BRAND_NAMES[p.brand]||p.brand}</span></td>
-      <td><span style="font-size:11px;color:var(--muted)">${p.kategori}</span><br><span style="font-size:12px">${p.ket}</span></td>
+      <td><span style="font-size:11px;color:#7a7a9a">${p.kategori}</span><br><span style="font-size:12px">${p.ket}</span></td>
       <td class="aneg" style="text-align:right">&minus;${rp(p.jumlah)}</td>
-    </tr>`).join('') : '<tr><td colspan="4" style="text-align:center;padding:20px;color:var(--dim)">Belum ada pengeluaran</td></tr>';
+    </tr>`).join('') : '<tr><td colspan="4" style="text-align:center;padding:20px;color:#44445a">Belum ada pengeluaran</td></tr>';
 }
 
 // ===============================================
@@ -1869,13 +1869,13 @@ function renderTodayReport() {
     // item breakdown
     const itemMap = {};
     bTx.forEach(t=>t.items.forEach(i=>{ itemMap[i.name]=(itemMap[i.name]||0)+i.qty; }));
-    const colorVar = b==='st'?'var(--st)':b==='sc'?'var(--sc)':'var(--mk)';
+    const colorVar = b==='st'?'#ff9500':b==='sc'?'#00c9a7':'#ff4081';
     return `<div class="report-brand-card">
       <div class="rbc-header">
         <div class="rbc-dot" style="background:${colorVar}"></div>
         <div>
           <div class="rbc-name">${BRAND_NAMES[b]}</div>
-          <div style="font-size:11px;color:var(--muted)">${bTx.length} transaksi &middot; ${itemCount} item terjual</div>
+          <div style="font-size:11px;color:#7a7a9a">${bTx.length} transaksi &middot; ${itemCount} item terjual</div>
         </div>
         <div style="margin-left:auto;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:${colorVar}">${rp(bTotal)}</div>
       </div>
@@ -1883,8 +1883,8 @@ function renderTodayReport() {
         ${Object.entries(itemMap).length ? Object.entries(itemMap).map(([k,v])=>`
           <div class="rbc-stat">
             <span class="rbc-stat-label">${k}</span>
-            <span class="rbc-stat-val" style="color:${colorVar}">${v}&times; <span style="color:var(--muted)">=</span></span>
-          </div>`).join('') : '<div style="color:var(--dim);font-size:12px;padding:8px 0">Belum ada penjualan</div>'}
+            <span class="rbc-stat-val" style="color:${colorVar}">${v}&times; <span style="color:#7a7a9a">=</span></span>
+          </div>`).join('') : '<div style="color:#44445a;font-size:12px;padding:8px 0">Belum ada penjualan</div>'}
       </div>
     </div>`;
   }).join('');
@@ -1893,7 +1893,7 @@ function renderTodayReport() {
   const outletBody = document.getElementById('today-outlet-body');
   const stTx = todayTx.filter(t=>t.brand==='st');
   if (!stTx.length) {
-    outletBody.innerHTML = '<div style="color:var(--dim);font-size:13px;padding:4px 0">Belum ada penjualan Sam Tahes hari ini</div>';
+    outletBody.innerHTML = '<div style="color:#44445a;font-size:13px;padding:4px 0">Belum ada penjualan Sam Tahes hari ini</div>';
   } else {
     const byOutlet = OUTLET_NAMES.map((name,idx)=>{
       const otx = stTx.filter(t=>t.outlet===idx);
@@ -1904,11 +1904,11 @@ function renderTodayReport() {
     });
     outletBody.innerHTML = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
       ${byOutlet.map(o=>`
-        <div style="background:var(--surface2);border-radius:8px;padding:12px;border:1px solid var(--border)">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">${o.name}</div>
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--st)">${rp(o.total)}</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px">${o.txCount} transaksi</div>
-          <div style="font-size:11px;margin-top:4px;color:var(--text)">PK: <b>${o.pkQty}</b> &middot; PB: <b>${o.pbQty}</b></div>
+        <div style="background:#1a1a24;border-radius:8px;padding:12px;border:1px solid #2a2a3a">
+          <div style="font-size:11px;color:#7a7a9a;margin-bottom:6px">${o.name}</div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ff9500">${rp(o.total)}</div>
+          <div style="font-size:11px;color:#7a7a9a;margin-top:4px">${o.txCount} transaksi</div>
+          <div style="font-size:11px;margin-top:4px;color:#eeeaf8">PK: <b>${o.pkQty}</b> &middot; PB: <b>${o.pbQty}</b></div>
         </div>`).join('')}
     </div>`;
   }
@@ -1923,17 +1923,17 @@ function renderTodayReport() {
     const itemStr = t.items.map(i=>`${i.qty}&times; ${i.name}`).join(', ');
     const isQris = t.payMethod==='qris';
     const methodBadge = isQris
-      ? `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">&#x1F4F1; QRIS</span>`
-      : `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">&#x1F4B5; TUNAI</span>`;
+      ? `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(61,156,255,0.12);color:#3d9cff;font-weight:700">&#x1F4F1; QRIS</span>`
+      : `<span style="font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(46,204,113,0.1);color:#2ecc71;font-weight:700">&#x1F4B5; TUNAI</span>`;
     return `<tr>
-      <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${new Date(t.time).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}</td>
+      <td style="color:#7a7a9a;font-size:11px;font-family:'DM Mono',monospace">${new Date(t.time).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})}</td>
       <td><span class="badge ${colorClass}">${BRAND_NAMES[t.brand]}</span></td>
-      <td style="font-size:11px;color:var(--muted)">${outletLabel}</td>
+      <td style="font-size:11px;color:#7a7a9a">${outletLabel}</td>
       <td>${methodBadge}</td>
       <td style="font-size:12px">${itemStr}</td>
       <td class="apos">${rp(t.total)}</td>
     </tr>`;
-  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--dim)">Belum ada transaksi hari ini</td></tr>';
+  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#44445a">Belum ada transaksi hari ini</td></tr>';
 }
 
 // ===============================================
@@ -1953,7 +1953,7 @@ function renderAllReport() {
   document.getElementById('all-omzet').textContent = rp(totalOmzet);
   document.getElementById('all-keluar').textContent = rp(totalKeluar);
   document.getElementById('all-laba').textContent = rp(laba);
-  document.getElementById('all-laba').style.color = laba>=0?'var(--green)':'var(--red)';
+  document.getElementById('all-laba').style.color = laba>=0?'#2ecc71':'#ff4757';
   document.getElementById('all-margin').textContent = 'margin '+margin+'%';
   document.getElementById('all-txcount').textContent = allPenjualan.length + allPengeluaran.length;
 
@@ -1971,16 +1971,16 @@ function renderAllReport() {
     const bSales = allPenjualan.filter(t=>t.brand===b).reduce((s,t)=>s+t.total,0);
     const bPgl = allPengeluaran.filter(p=>p.brand===b||p.brand==='grup').reduce((s,p)=>s+(p.brand===b?p.jumlah:p.jumlah/3),0);
     const bLaba = bSales - bPgl;
-    const colorVar = b==='st'?'var(--st)':b==='sc'?'var(--sc)':'var(--mk)';
-    return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
-      <div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px">
+    const colorVar = b==='st'?'#ff9500':b==='sc'?'#00c9a7':'#ff4081';
+    return `<div style="background:#12121a;border:1px solid #2a2a3a;border-radius:12px;overflow:hidden">
+      <div style="padding:12px 16px;border-bottom:1px solid #2a2a3a;display:flex;align-items:center;gap:8px">
         <div style="width:8px;height:8px;border-radius:50%;background:${colorVar}"></div>
         <span style="font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700">${BRAND_NAMES[b]}</span>
       </div>
       <div style="padding:12px 16px">
         <div class="rbc-stat"><span class="rbc-stat-label">Total Penjualan</span><span class="apos">${rp(bSales)}</span></div>
         <div class="rbc-stat"><span class="rbc-stat-label">Total Pengeluaran</span><span class="aneg">${rp(Math.round(bPgl))}</span></div>
-        <div class="rbc-stat" style="border-bottom:none"><span class="rbc-stat-label" style="font-weight:700;color:var(--text)">Laba Bersih</span><span style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:${bLaba>=0?'var(--green)':'var(--red)'}">${rp(Math.round(bLaba))}</span></div>
+        <div class="rbc-stat" style="border-bottom:none"><span class="rbc-stat-label" style="font-weight:700;color:#eeeaf8">Laba Bersih</span><span style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:${bLaba>=0?'#2ecc71':'#ff4757'}">${rp(Math.round(bLaba))}</span></div>
       </div>
     </div>`;
   }).join('');
@@ -2004,19 +2004,19 @@ function renderAllReport() {
     const isQris = t.payMethod==='qris';
     const methodBadge = t._type==='penjualan'
       ? (isQris
-          ? `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(61,156,255,0.12);color:var(--blue);font-weight:700">&#x1F4F1; QRIS</span>`
-          : `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(46,204,113,0.1);color:var(--green);font-weight:700">&#x1F4B5; TUNAI</span>`)
-      : `<span style="font-size:10px;color:var(--dim)">&mdash;</span>`;
+          ? `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(61,156,255,0.12);color:#3d9cff;font-weight:700">&#x1F4F1; QRIS</span>`
+          : `<span style="font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(46,204,113,0.1);color:#2ecc71;font-weight:700">&#x1F4B5; TUNAI</span>`)
+      : `<span style="font-size:10px;color:#44445a">&mdash;</span>`;
     return `<tr>
-      <td style="color:var(--muted);font-size:11px;font-family:'DM Mono',monospace">${fmtTime(t.time)}</td>
+      <td style="color:#7a7a9a;font-size:11px;font-family:'DM Mono',monospace">${fmtTime(t.time)}</td>
       <td><span class="badge ${colorClass}">${BRAND_NAMES[t.brand]||t.brand}</span></td>
-      <td><span style="font-size:11px;padding:2px 7px;border-radius:4px;background:${t._type==='penjualan'?'rgba(46,204,113,0.1)':'rgba(255,71,87,0.1)'};color:${t._type==='penjualan'?'var(--green)':'var(--red)'}">${t._type.toUpperCase()}</span></td>
+      <td><span style="font-size:11px;padding:2px 7px;border-radius:4px;background:${t._type==='penjualan'?'rgba(46,204,113,0.1)':'rgba(255,71,87,0.1)'};color:${t._type==='penjualan'?'#2ecc71':'#ff4757'}">${t._type.toUpperCase()}</span></td>
       <td>${methodBadge}</td>
       <td style="font-size:12px;max-width:200px">${desc}</td>
       <td>${outLabel}</td>
       <td class="${amtClass}" style="text-align:right">${amtPrefix}${rp(t.total||t.jumlah)}</td>
     </tr>`;
-  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--dim)">Belum ada data</td></tr>';
+  }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#44445a">Belum ada data</td></tr>';
 }
 
 // ===============================================
